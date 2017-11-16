@@ -62,27 +62,11 @@ abstract class AbstractServiceController
     }
 
     /**
-     * @return AuthorizationCheckerInterface
-     */
-    protected function getAuthorizationChecker()
-    {
-        return $this->authorizationChecker;
-    }
-
-    /**
      * @param CsrfTokenManagerInterface $csrfTokenManager
      */
     public function setCsrfTokenManager(CsrfTokenManagerInterface $csrfTokenManager)
     {
         $this->csrfTokenManager = $csrfTokenManager;
-    }
-
-    /**
-     * @return CsrfTokenManagerInterface
-     */
-    protected function getCsrfTokenManager()
-    {
-        return $this->csrfTokenManager;
     }
 
     /**
@@ -94,27 +78,11 @@ abstract class AbstractServiceController
     }
 
     /**
-     * @return FormFactoryInterface
-     */
-    protected function getFormFactory()
-    {
-        return $this->formFactory;
-    }
-
-    /**
      * @param RouterInterface $router
      */
     public function setRouter(RouterInterface $router)
     {
         $this->router = $router;
-    }
-
-    /**
-     * @return RouterInterface
-     */
-    protected function getRouter()
-    {
-        return $this->router;
     }
 
     /**
@@ -126,14 +94,6 @@ abstract class AbstractServiceController
     }
 
     /**
-     * @return Session
-     */
-    protected function getSession()
-    {
-        return $this->session;
-    }
-
-    /**
      * @param EngineInterface $templating
      */
     public function setTemplating(EngineInterface $templating)
@@ -142,19 +102,59 @@ abstract class AbstractServiceController
     }
 
     /**
-     * @return EngineInterface
-     */
-    protected function getTemplating()
-    {
-        return $this->templating;
-    }
-
-    /**
      * @param TokenStorageInterface $tokenStorage
      */
     public function setTokenStorage(TokenStorageInterface $tokenStorage)
     {
         $this->tokenStorage = $tokenStorage;
+    }
+
+    /**
+     * @return AuthorizationCheckerInterface
+     */
+    protected function getAuthorizationChecker()
+    {
+        return $this->authorizationChecker;
+    }
+
+    /**
+     * @return CsrfTokenManagerInterface
+     */
+    protected function getCsrfTokenManager()
+    {
+        return $this->csrfTokenManager;
+    }
+
+    /**
+     * @return FormFactoryInterface
+     */
+    protected function getFormFactory()
+    {
+        return $this->formFactory;
+    }
+
+    /**
+     * @return RouterInterface
+     */
+    protected function getRouter()
+    {
+        return $this->router;
+    }
+
+    /**
+     * @return Session
+     */
+    protected function getSession()
+    {
+        return $this->session;
+    }
+
+    /**
+     * @return EngineInterface
+     */
+    protected function getTemplating()
+    {
+        return $this->templating;
     }
 
     /**
@@ -176,7 +176,7 @@ abstract class AbstractServiceController
      *
      * @see UrlGeneratorInterface
      */
-    protected function generateUrl($route, $parameters = array(), $referenceType = UrlGeneratorInterface::ABSOLUTE_PATH)
+    protected function generateUrl($route, $parameters = [], $referenceType = UrlGeneratorInterface::ABSOLUTE_PATH)
     {
         return $this->getRouter()->generate($route, $parameters, $referenceType);
     }
@@ -203,7 +203,7 @@ abstract class AbstractServiceController
      *
      * @return RedirectResponse
      */
-    protected function redirectToRoute($route, array $parameters = array(), $status = 302)
+    protected function redirectToRoute($route, array $parameters = [], $status = 302)
     {
         return $this->redirect($this->generateUrl($route, $parameters), $status);
     }
@@ -231,9 +231,9 @@ abstract class AbstractServiceController
      * @param mixed $attributes The attributes
      * @param mixed $object     The object
      *
-     * @return bool
-     *
      * @throws \LogicException
+     *
+     * @return bool
      */
     protected function isGranted($attributes, $object = null)
     {
@@ -269,7 +269,7 @@ abstract class AbstractServiceController
      *
      * @return string The rendered view
      */
-    protected function renderView($view, array $parameters = array())
+    protected function renderView($view, array $parameters = [])
     {
         return $this->getTemplating()->render($view, $parameters);
     }
@@ -283,7 +283,7 @@ abstract class AbstractServiceController
      *
      * @return Response A Response instance
      */
-    protected function render($view, array $parameters = array(), Response $response = null)
+    protected function render($view, array $parameters = [], Response $response = null)
     {
         return $this->getTemplating()->renderResponse($view, $parameters, $response);
     }
@@ -331,7 +331,7 @@ abstract class AbstractServiceController
      *
      * @return Form
      */
-    protected function createForm($type, $data = null, array $options = array())
+    protected function createForm($type, $data = null, array $options = [])
     {
         return $this->getFormFactory()->create($type, $data, $options);
     }
@@ -344,7 +344,7 @@ abstract class AbstractServiceController
      *
      * @return FormBuilderInterface
      */
-    protected function createFormBuilder($data = null, array $options = array())
+    protected function createFormBuilder($data = null, array $options = [])
     {
         return $this->getFormFactory()->createBuilder(FormType::class, $data, $options);
     }
@@ -352,9 +352,9 @@ abstract class AbstractServiceController
     /**
      * Get a user from the Security Token Storage.
      *
-     * @return mixed
-     *
      * @throws \LogicException If SecurityBundle is not available
+     *
+     * @return mixed
      *
      * @see TokenInterface::getUser()
      */

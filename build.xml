@@ -176,11 +176,6 @@
         <exec executable="${php-bin}" logoutput="true">
             <arg path="${php-cs-fixer-bin}" />
             <arg value="fix"/>
-            <arg value="${project.basedir}" />
-            <arg value="--level"/>
-            <arg value="symfony"/>
-            <arg value="--config"/>
-            <arg value="sf23"/>
         </exec>
     </target>
 

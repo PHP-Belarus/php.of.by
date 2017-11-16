@@ -16,6 +16,6 @@ class DefaultController extends AbstractServiceController
      */
     public function indexAction()
     {
-        return array();
+        return [];
     }
 }

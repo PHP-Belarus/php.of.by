@@ -89,7 +89,7 @@ class User extends BaseUser implements Timestampable, UserInterface
      */
     public function serialize()
     {
-        return serialize(array(
+        return serialize([
             $this->password,
             $this->salt,
             $this->usernameCanonical,
@@ -98,7 +98,7 @@ class User extends BaseUser implements Timestampable, UserInterface
             $this->userId,
             $this->email,
             $this->emailCanonical,
-        ));
+        ]);
     }
 
     /**

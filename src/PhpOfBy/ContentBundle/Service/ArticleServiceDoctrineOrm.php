@@ -2,8 +2,8 @@
 
 namespace PhpOfBy\ContentBundle\Service;
 
-use PhpOfBy\ContentBundle\Entity\ArticleRepository;
 use Doctrine\Bundle\DoctrineBundle\Registry as DoctrineRegistry;
+use PhpOfBy\ContentBundle\Entity\ArticleRepository;
 
 class ArticleServiceDoctrineOrm implements ArticleServiceInterface
 {
