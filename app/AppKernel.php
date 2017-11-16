@@ -19,7 +19,7 @@ class AppKernel extends Kernel
             //3rd party modules
             new Symfony\Bundle\AsseticBundle\AsseticBundle(), // Manage assets
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(), // DB migrations
-            new JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle(), // Administration
+            new EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle(), // Administration
             new FOS\UserBundle\FOSUserBundle(), // Bundle for use database as users backend
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(), // Doctrine extensions
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),// WYSIWYG editor
