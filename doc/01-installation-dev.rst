@@ -1,7 +1,7 @@
 Installation on Dev server
 ==========================
 
-Installation on Debian 8
+Installation on Debian 9
 ------------------------
 
 Install sudo, in case in required
@@ -21,44 +21,22 @@ Log in as newly created user
 
 Install common packages
 ~~~~~~~~~~~~~~~~~~~~~~~
-``sudo apt-get install -y git openjdk-7-jre bash-completion mc python-docutils``
+``sudo apt-get install -y git openjdk-8-jre bash-completion mc python-docutils``
 
 
 Install web server
 ~~~~~~~~~~~~~~~~~~
-``sudo apt-get install -y apache2-mpm-prefork && sudo /usr/sbin/a2enmod rewrite``
+``sudo apt-get install -y apache2 && sudo /usr/sbin/a2enmod rewrite``
 
-
-Install PHP 5.6
-~~~~~~~~~~~~~~~
-Install php 5.6 using command ``sudo apt-get install -y php5 php5-cli php5-intl php5-xdebug php5-mysqlnd``. Create and enable ``common.ini``:
-
-  ::
-
-    echo "; priority=99" | sudo tee /etc/php5/mods-available/common.ini > /dev/null
-    echo "date.timezone=Europe/Minsk" | sudo tee -a /etc/php5/mods-available/common.ini > /dev/null
-    echo "short_open_tag=0" | sudo tee -a /etc/php5/mods-available/common.ini > /dev/null
-    echo "xdebug.max_nesting_level=250" | sudo tee -a /etc/php5/mods-available/xdebug.ini > /dev/null
-    echo "xdebug.var_display_max_depth=5" | sudo tee -a /etc/php5/mods-available/xdebug.ini > /dev/null
-    sudo php5enmod common
 
 Install PHP 7.0
 ~~~~~~~~~~~~~~~
-Enable http://dotdeb.org repository:
-
-  ::
-
-    wget https://www.dotdeb.org/dotdeb.gpg && sudo apt-key add dotdeb.gpg
-    echo "deb http://packages.dotdeb.org jessie all" | sudo tee -a /etc/apt/sources.list > /dev/null
-    echo "deb-src http://packages.dotdeb.org jessie all" | sudo tee -a /etc/apt/sources.list > /dev/null
-    sudo apt-get update
-
-Install php 7.0 using command ``sudo apt-get install -y php7.0 php7.0-cli php7.0-intl php7.0-xdebug php7.0-mysql``. Create and enable ``common.ini``:
+Install php 7.0 using command ``sudo apt-get install -y php7.0 php7.0-cli php7.0-intl php7.0-xdebug php7.0-mysqlnd php7.0-xml php7.0-mbstring``. Create and enable ``common.ini``:
 
   ::
 
     echo "; priority=99" | sudo tee /etc/php/7.0/mods-available/common.ini > /dev/null
-    echo "date.timezone=Europe/Minsk" | sudo tee -a /etc/php5/mods-available/common.ini > /dev/null
+    echo "date.timezone=Europe/Minsk" | sudo tee -a /etc/php/7.0/mods-available/common.ini > /dev/null
     echo "short_open_tag=0" | sudo tee -a /etc/php/7.0/mods-available/common.ini > /dev/null
     echo "xdebug.max_nesting_level=250" | sudo tee -a /etc/php/7.0/mods-available/xdebug.ini > /dev/null
     echo "xdebug.var_display_max_depth=5" | sudo tee -a /etc/php/7.0/mods-available/xdebug.ini > /dev/null
@@ -106,7 +84,7 @@ Sudo for developer account
 
 Install MySQL
 ~~~~~~~~~~~~~
-Install mysql 5.5 using command ``sudo apt-get install -y mysql-client-5.5 mysql-server-5.5``. Set ``root`` as password for ``root`` account. Update ``my.cnf`` and restart mysql
+Install mysql 5.5 using command ``sudo apt-get install -y mysql-client mysql-server``. Set ``root`` as password for ``root`` account. Update ``my.cnf`` and restart mysql
 
   ::
 
