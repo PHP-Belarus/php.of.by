@@ -45,7 +45,7 @@ Install php 7.0 using command ``sudo apt-get install -y php7.0 php7.0-cli php7.0
 
 Samba
 ~~~~~
-Install samba using command ``sudo apt-get install -y samba libpam-smbpass``.
+Install samba using command ``sudo apt-get install -y samba``.
 Edit samba config ``sudo mcedit /etc/samba/smb.conf``
 
   ::
