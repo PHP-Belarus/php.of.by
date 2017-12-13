@@ -5,4 +5,5 @@ services:
   phpofby_website.controller.default:
     class: '%phpofby_website.controller.default.class%'
     parent: common.contoller.abstract
+    public: true
     arguments: []

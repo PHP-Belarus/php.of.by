@@ -104,6 +104,9 @@
         <composer composer="${project-composer-phar}" command="install">
             <arg value="--optimize-autoloader"/>
         </composer>
+        <SymfonyConsole command="ckeditor:install" checkReturn="true" console="${symfony-bin-console}" >
+            <arg value="-nq" />
+        </SymfonyConsole>
     </target>
 
     <target name="dependencies-install-prod" description="Install only prod dependencies using composer">
@@ -112,6 +115,9 @@
             <arg value="--optimize-autoloader" />
             <arg value="--no-dev" />
         </composer>
+        <SymfonyConsole command="ckeditor:install" checkReturn="true" console="${symfony-bin-console}" >
+            <arg value="-nq" />
+        </SymfonyConsole>
     </target>
 
     <target name="dependencies-list-updates" description="Check updates for all dependencies">
@@ -184,10 +190,19 @@
             <arg name="env" value="dev" />
             <arg value="--no-interaction" />
         </SymfonyConsole>
+        <SymfonyConsole command="cache:pool:prune" checkreturn="true" console="${symfony-bin-console}">
+            <arg name="env" value="dev" />
+            <arg value="--no-interaction" />
+        </SymfonyConsole>
     </target>
 
     <target name="symfony-regenerate-cache-prod" description="Regenerate symfony cache in prod mode">
         <SymfonyConsole command="cache:clear" checkreturn="true" console="${symfony-bin-console}">
+            <arg name="env" value="prod" />
+            <arg value="--no-debug" />
+            <arg value="--no-interaction" />
+        </SymfonyConsole>
+        <SymfonyConsole command="cache:pool:prune" checkreturn="true" console="${symfony-bin-console}">
             <arg name="env" value="prod" />
             <arg value="--no-debug" />
             <arg value="--no-interaction" />

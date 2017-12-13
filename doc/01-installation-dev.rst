@@ -31,7 +31,7 @@ Install web server
 
 Install PHP 7.0
 ~~~~~~~~~~~~~~~
-Install php 7.0 using command ``sudo apt-get install -y php7.0 php7.0-cli php7.0-intl php7.0-xdebug php7.0-mysqlnd php7.0-xml php7.0-mbstring``. Create and enable ``common.ini``:
+Install php 7.0 using command ``sudo apt-get install -y php7.0 php7.0-cli php7.0-intl php7.0-xdebug php7.0-mysqlnd php7.0-xml php7.0-mbstring php7.0-zip``. Create and enable ``common.ini``:
 
   ::
 
