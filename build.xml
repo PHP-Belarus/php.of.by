@@ -275,23 +275,10 @@
     </target>
 
     <target name="phpcs" description="Run code style checks" depends="initialize-autoload">
-        <!-- add here haltonerror="true" haltonwarning="true" when phing fix issue with reports, which we don't saving to file.
-        Also we need to remove loadfile, if and delete code -->
         <phpcodesniffer standard="PSR1,PSR2" encoding="UTF-8">
             <fileset refid="src-php"/>
-            <formatter type="full" usefile="true" outfile="${project-build-output-dir}/phpcs.txt"/>
+            <formatter type="full" usefile="false" />
         </phpcodesniffer>
-        <loadfile property="phpcs-report" file="${project-build-output-dir}/phpcs.txt"/>
-        <if>
-            <equals arg1="${phpcs-report}" arg2="" trim="true"/>
-            <then>
-            </then>
-            <else>
-                <echo message="${phpcs-report}"/>
-                <fail message=""/>
-            </else>
-        </if>
-        <delete file="${project-build-output-dir}/phpcs.txt" />
     </target>
 
     <target name="symfony-doctrine-dump-schema" description="Dump current database scheme">
