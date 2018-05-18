@@ -87,7 +87,7 @@
     },
     "config": {
         "platform": {
-            "php": "7.0.17"
+            "php": "7.0.30"
         },
         "sort-packages": true
     },
