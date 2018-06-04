@@ -19,5 +19,6 @@
 /doc/*/*.html
 /.idea/
 /*.apache
+/*.nginx
 /web/css/*
 /web/js/*

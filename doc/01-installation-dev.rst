@@ -21,27 +21,50 @@ Log in as newly created user
 
 Install common packages
 ~~~~~~~~~~~~~~~~~~~~~~~
-``sudo apt-get install -y git openjdk-8-jre bash-completion mc python-docutils``
+``sudo apt-get install -y git openjdk-8-jre bash-completion mc python-docutils lsb-release``
 
 
 Install web server
 ~~~~~~~~~~~~~~~~~~
-``sudo apt-get install -y apache2 && sudo /usr/sbin/a2enmod rewrite``
+Add nginx repo key using ``wget http://nginx.org/keys/nginx_signing.key && sudo apt-key add nginx_signing.key``.
 
-
-Install PHP 7.0
-~~~~~~~~~~~~~~~
-Install php 7.0 using command ``sudo apt-get install -y php7.0 php7.0-cli php7.0-intl php7.0-xdebug php7.0-mysqlnd php7.0-xml php7.0-mbstring php7.0-zip``. Create and enable ``common.ini``:
+Add nginx repos:
 
   ::
 
-    echo "; priority=99" | sudo tee /etc/php/7.0/mods-available/common.ini > /dev/null
-    echo "date.timezone=Europe/Minsk" | sudo tee -a /etc/php/7.0/mods-available/common.ini > /dev/null
-    echo "short_open_tag=0" | sudo tee -a /etc/php/7.0/mods-available/common.ini > /dev/null
-    echo "xdebug.max_nesting_level=250" | sudo tee -a /etc/php/7.0/mods-available/xdebug.ini > /dev/null
-    echo "xdebug.var_display_max_depth=5" | sudo tee -a /etc/php/7.0/mods-available/xdebug.ini > /dev/null
+    echo "deb http://nginx.org/packages/debian/ $(lsb_release -sc) nginx" | sudo tee -a /etc/apt/sources.list.d/nginx.list > /dev/null
+    echo "deb-src http://nginx.org/packages/debian/ $(lsb_release -sc) nginx" | sudo tee -a /etc/apt/sources.list.d/nginx.list > /dev/null
+
+
+Install nginx via ``sudo apt-get update && sudo apt-get install -y nginx``
+
+
+Install PHP 7.1
+~~~~~~~~~~~~~~~
+Add repository for php 7.1:
+
+  ::
+
+    sudo apt-get -y install -y apt-transport-https lsb-release ca-certificates
+    sudo wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
+    sudo sh -c 'echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
+
+
+Install required php modules ``sudo apt-get update && sudo apt-get install -y php7.1 php7.1-cli php7.1-intl php7.1-xdebug php7.1-mysqlnd php7.1-xml php7.1-mbstring php7.1-zip php7.1-fpm`` Create and enable ``common.ini``:
+
+  ::
+
+    echo "; priority=99" | sudo tee /etc/php/7.1/mods-available/common.ini > /dev/null
+    echo "date.timezone=Europe/Minsk" | sudo tee -a /etc/php/7.1/mods-available/common.ini > /dev/null
+    echo "short_open_tag=0" | sudo tee -a /etc/php/7.1/mods-available/common.ini > /dev/null
+    echo "xdebug.max_nesting_level=250" | sudo tee -a /etc/php/7.1/mods-available/xdebug.ini > /dev/null
+    echo "xdebug.var_display_max_depth=5" | sudo tee -a /etc/php/7.1/mods-available/xdebug.ini > /dev/null
     sudo phpenmod common
 
+
+Open php fpm config file ``sudo mcedit /etc/php/7.1/fpm/pool.d/www.conf``, find ``listen = /run/php/php7.1-fpm.sock`` and replace with ``listen = 127.0.0.1:9000``.
+
+Restart ``php-fpm`` using command ``sudo service php7.1-fpm restart``.
 
 Samba
 ~~~~~
@@ -78,7 +101,7 @@ Sudo for developer account
   ::
 
     echo "User_Alias DEVELOPERS = %www-data" | sudo tee -a /etc/sudoers.d/developers > /dev/null
-    echo "Cmnd_Alias SERVICE_CMDS = /usr/sbin/service, /usr/sbin/a2ensite, /usr/bin/tail, /bin/cat" | sudo tee -a /etc/sudoers.d/developers > /dev/null
+    echo "Cmnd_Alias SERVICE_CMDS = /usr/sbin/service, /usr/bin/tail, /bin/cat" | sudo tee -a /etc/sudoers.d/developers > /dev/null
     echo "DEVELOPERS ALL=NOPASSWD: SERVICE_CMDS" | sudo tee -a /etc/sudoers.d/developers > /dev/null
 
 
@@ -109,7 +132,6 @@ Developers accounts
     mysql -uroot -proot -e "create database phpofby_$USERNAME DEFAULT CHARACTER SET utf8 ;\
         grant all on phpofby_$USERNAME.* to 'symfony'@'localhost' identified by 'symfony';\
         grant all on phpofby_$USERNAME.* to 'symfony'@'%' identified by 'symfony';"
-    sudo ln -s /home/$USERNAME/www/phpofby/phpofby.apache /etc/apache2/sites-available/phpofby_$USERNAME.conf
-    sudo sudo a2ensite phpofby_$USERNAME
-    sudo service apache2 restart
+    sudo ln -s /home/$USERNAME/www/<sitename>/<sitename>.nginx /etc/nginx/conf.d/<sitename>_$USERNAME.conf
+    sudo service nginx restart
 
