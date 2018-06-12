@@ -13,8 +13,10 @@ class DefaultController extends AbstractServiceController
     /**
      * @Mvc\Route("/")
      * @Mvc\Template
+     *
+     * @return array
      */
-    public function indexAction()
+    public function indexAction(): array
     {
         return [];
     }

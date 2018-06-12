@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<psalm
+    totallyTyped="false"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="https://getpsalm.org/schema/config"
+    xsi:schemaLocation="https://getpsalm.org/schema/config file:///home/developer/www/phpofby/vendor/vimeo/psalm/config.xsd"
+>
+    <projectFiles>
+        <directory name="src" />
+        <ignoreFiles>
+            <directory name="app" />
+            <directory name="vendor" />
+        </ignoreFiles>
+    </projectFiles>
+
+    <issueHandlers>
+        <LessSpecificReturnType errorLevel="info" />
+
+        <!-- level 3 issues - slightly lazy code writing, but provably low false-negatives -->
+
+        <DeprecatedMethod errorLevel="info" />
+        <DeprecatedProperty errorLevel="info" />
+        <DeprecatedClass errorLevel="info" />
+        <DeprecatedInterface errorLevel="info" />
+
+        <MissingClosureReturnType errorLevel="info" />
+        <MissingReturnType errorLevel="info" />
+        <MissingPropertyType errorLevel="info" />
+        <InvalidDocblock errorLevel="info" />
+        <MisplacedRequiredParam errorLevel="info" />
+
+        <PropertyNotSetInConstructor>
+            <errorLevel type="suppress">
+                <!-- We are not initializing all props in constructor for doctrine entities -->
+                <directory name="src/PhpOfBy/ContentBundle/Entity" />
+                <directory name="src/PhpOfBy/SecurityBundle/Entity" />
+            </errorLevel>
+        </PropertyNotSetInConstructor>
+        <MissingConstructor errorLevel="info" />
+        <MissingClosureParamType errorLevel="info" />
+        <MissingParamType errorLevel="info" />
+
+        <RedundantCondition errorLevel="info" />
+
+        <DocblockTypeContradiction errorLevel="info" />
+        <RedundantConditionGivenDocblockType errorLevel="info" />
+
+        <UnresolvableInclude errorLevel="info" />
+
+        <RawObjectIteration errorLevel="info" />
+    </issueHandlers>
+</psalm>

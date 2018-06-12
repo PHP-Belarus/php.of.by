@@ -1,8 +1,23 @@
 parameters:
-  phpofby_security.service.user.class: PhpOfBy\SecurityBundle\Service\UserManagerServiceDoctrineOrm
+  phpofby_security.service.user.class: PhpOfBy\SecurityBundle\Service\UserServiceDoctrineOrm
+  phpofby_security.service.roles.class: PhpOfBy\SecurityBundle\Service\RolesYamlService
+  phpofby_security.form.type.roles.class: PhpOfBy\SecurityBundle\Form\Type\RolesChoiceType
 
 services:
   phpofby_security.service.user:
-    parent: fos_user.user_manager.default
-    class: '%phpofby_security.service.user.class%'
-    lazy: true
+      parent: fos_user.user_manager.default
+      class: '%phpofby_security.service.user.class%'
+      lazy: true
+
+  phpofby_security.service.roles:
+      class: '%phpofby_security.service.roles.class%'
+      lazy: true
+      arguments:
+          - '%security.role_hierarchy.roles%'
+
+  phpofby_security.form.type.roles:
+      class: '%phpofby_security.form.type.roles.class%'
+      arguments:
+          - '@phpofby_security.service.roles'
+      tags:
+          - { name: form.type }

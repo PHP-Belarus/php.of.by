@@ -67,7 +67,8 @@
         "sebastian/phpcpd": "4.*",
         "sensio/generator-bundle": "^3.0",
         "squizlabs/php_codesniffer": "2.*",
-        "symfony/phpunit-bridge": "^3.0"
+        "symfony/phpunit-bridge": "^3.0",
+        "vimeo/psalm": "2.0.3"
     },
     "scripts": {
         "symfony-scripts": [

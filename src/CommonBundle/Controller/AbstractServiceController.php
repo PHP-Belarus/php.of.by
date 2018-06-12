@@ -4,9 +4,9 @@ namespace CommonBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
-use Symfony\Component\Form\Form;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormFactoryInterface;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Session;
@@ -56,7 +56,7 @@ abstract class AbstractServiceController
     /**
      * @param AuthorizationCheckerInterface $authorizationChecker
      */
-    public function setAuthorizationChecker(AuthorizationCheckerInterface $authorizationChecker)
+    public function setAuthorizationChecker(AuthorizationCheckerInterface $authorizationChecker): void
     {
         $this->authorizationChecker = $authorizationChecker;
     }
@@ -64,7 +64,7 @@ abstract class AbstractServiceController
     /**
      * @param CsrfTokenManagerInterface $csrfTokenManager
      */
-    public function setCsrfTokenManager(CsrfTokenManagerInterface $csrfTokenManager)
+    public function setCsrfTokenManager(CsrfTokenManagerInterface $csrfTokenManager): void
     {
         $this->csrfTokenManager = $csrfTokenManager;
     }
@@ -72,7 +72,7 @@ abstract class AbstractServiceController
     /**
      * @param FormFactoryInterface $formFactory
      */
-    public function setFormFactory(FormFactoryInterface $formFactory)
+    public function setFormFactory(FormFactoryInterface $formFactory): void
     {
         $this->formFactory = $formFactory;
     }
@@ -80,7 +80,7 @@ abstract class AbstractServiceController
     /**
      * @param RouterInterface $router
      */
-    public function setRouter(RouterInterface $router)
+    public function setRouter(RouterInterface $router): void
     {
         $this->router = $router;
     }
@@ -88,7 +88,7 @@ abstract class AbstractServiceController
     /**
      * @param Session $session
      */
-    public function setSession(Session $session)
+    public function setSession(Session $session): void
     {
         $this->session = $session;
     }
@@ -96,7 +96,7 @@ abstract class AbstractServiceController
     /**
      * @param EngineInterface $templating
      */
-    public function setTemplating(EngineInterface $templating)
+    public function setTemplating(EngineInterface $templating): void
     {
         $this->templating = $templating;
     }
@@ -104,7 +104,7 @@ abstract class AbstractServiceController
     /**
      * @param TokenStorageInterface $tokenStorage
      */
-    public function setTokenStorage(TokenStorageInterface $tokenStorage)
+    public function setTokenStorage(TokenStorageInterface $tokenStorage): void
     {
         $this->tokenStorage = $tokenStorage;
     }
@@ -216,7 +216,7 @@ abstract class AbstractServiceController
      *
      * @throws \LogicException
      */
-    protected function addFlash($type, $message)
+    protected function addFlash($type, $message): void
     {
         if (!$this->getSession() instanceof Session) {
             throw new \LogicException('You can not use the addFlash method if sessions are disabled.');
@@ -254,7 +254,7 @@ abstract class AbstractServiceController
      *
      * @throws AccessDeniedException
      */
-    protected function denyAccessUnlessGranted($attributes, $object = null, $message = 'Access Denied.')
+    protected function denyAccessUnlessGranted($attributes, $object = null, $message = 'Access Denied.'): void
     {
         if (!$this->isGranted($attributes, $object)) {
             throw $this->createAccessDeniedException($message);
@@ -329,7 +329,7 @@ abstract class AbstractServiceController
      * @param mixed  $data    The initial data for the form
      * @param array  $options Options for the form
      *
-     * @return Form
+     * @return FormInterface
      */
     protected function createForm($type, $data = null, array $options = [])
     {

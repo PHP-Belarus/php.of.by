@@ -92,7 +92,7 @@
     </target>
 
     <target name="check-environment" description="Check that environment is suitable for symfony">
-        <exec command="${php-bin} ${project-bin-dir}/symfony_requirements" checkreturn="true" logoutput="true" />
+        <exec command="${php-bin} ${project-bin-dir}/symfony_requirements" checkReturn="true" logoutput="true" />
     </target>
 
     <target name="dependencies-install" description="Install all dependencies using composer">
@@ -127,7 +127,7 @@
     </target>
 
     <target name="dependencies-security-check" description="Check security problems for all dependencies">
-        <SymfonyConsole command="security:check" checkreturn="true" console="${symfony-bin-console}">
+        <SymfonyConsole command="security:check" checkReturn="true" console="${symfony-bin-console}">
             <arg value="./composer.lock" />
             <arg value="--no-interaction" />
             <arg value="--end-point=http://security.sensiolabs.org/check_lock" /> <!-- Remove this line when travis-ci fix bug with php ssl in image (https://github.com/travis-ci/travis-ci/issues/6339) -->
@@ -155,7 +155,7 @@
     </target>
 
     <target name="symfony-twig-lint-dir" description="Check twig templates syntax in directory">
-        <SymfonyConsole command="lint:twig" checkreturn="true" console="${symfony-bin-console}">
+        <SymfonyConsole command="lint:twig" checkReturn="true" console="${symfony-bin-console}">
             <arg value="${templates.dir}" />
             <arg value="--no-interaction" />
         </SymfonyConsole>
@@ -166,7 +166,7 @@
     </target>
 
     <target name="symfony-yaml-lint-dir" description="Check yaml syntax in directory">
-        <SymfonyConsole command="lint:yaml" checkreturn="true" console="${symfony-bin-console}">
+        <SymfonyConsole command="lint:yaml" checkReturn="true" console="${symfony-bin-console}">
             <arg value="${yamls.dir}" />
             <arg value="--no-interaction" />
         </SymfonyConsole>
@@ -186,23 +186,23 @@
     </target>
 
     <target name="symfony-regenerate-cache-dev" description="Regenerate symfony cache in dev mode">
-        <SymfonyConsole command="cache:clear" checkreturn="true" console="${symfony-bin-console}">
+        <SymfonyConsole command="cache:clear" checkReturn="true" console="${symfony-bin-console}">
             <arg name="env" value="dev" />
             <arg value="--no-interaction" />
         </SymfonyConsole>
-        <SymfonyConsole command="cache:pool:prune" checkreturn="true" console="${symfony-bin-console}">
+        <SymfonyConsole command="cache:pool:prune" checkReturn="true" console="${symfony-bin-console}">
             <arg name="env" value="dev" />
             <arg value="--no-interaction" />
         </SymfonyConsole>
     </target>
 
     <target name="symfony-regenerate-cache-prod" description="Regenerate symfony cache in prod mode">
-        <SymfonyConsole command="cache:clear" checkreturn="true" console="${symfony-bin-console}">
+        <SymfonyConsole command="cache:clear" checkReturn="true" console="${symfony-bin-console}">
             <arg name="env" value="prod" />
             <arg value="--no-debug" />
             <arg value="--no-interaction" />
         </SymfonyConsole>
-        <SymfonyConsole command="cache:pool:prune" checkreturn="true" console="${symfony-bin-console}">
+        <SymfonyConsole command="cache:pool:prune" checkReturn="true" console="${symfony-bin-console}">
             <arg name="env" value="prod" />
             <arg value="--no-debug" />
             <arg value="--no-interaction" />
@@ -210,14 +210,14 @@
     </target>
 
     <target name="symfony-assets-install-dev" description="Install assets in dev mode">
-        <SymfonyConsole command="assets:install" checkreturn="true" console="${symfony-bin-console}">
+        <SymfonyConsole command="assets:install" checkReturn="true" console="${symfony-bin-console}">
             <arg name="env" value="dev" />
             <arg value="--no-interaction" />
         </SymfonyConsole>
     </target>
 
     <target name="symfony-assets-install-prod" description="Install assets in prod mode">
-        <SymfonyConsole command="assets:install" checkreturn="true" console="${symfony-bin-console}">
+        <SymfonyConsole command="assets:install" checkReturn="true" console="${symfony-bin-console}">
             <arg name="env" value="prod" />
             <arg value="--no-debug" />
             <arg value="--no-interaction" />
@@ -225,14 +225,14 @@
     </target>
 
     <target name="symfony-assetic-dump-dev" description="Dumps all assets to the filesystem for dev environment">
-        <SymfonyConsole command="assetic:dump" checkreturn="true" console="${symfony-bin-console}">
+        <SymfonyConsole command="assetic:dump" checkReturn="true" console="${symfony-bin-console}">
             <arg name="env" value="dev" />
             <arg value="--no-interaction" />
         </SymfonyConsole>
     </target>
 
     <target name="symfony-assetic-dump-prod" description="Dumps all assets to the filesystem for prod environment">
-        <SymfonyConsole command="assetic:dump" checkreturn="true" console="${symfony-bin-console}">
+        <SymfonyConsole command="assetic:dump" checkReturn="true" console="${symfony-bin-console}">
             <arg name="env" value="prod" />
             <arg value="--no-debug" />
             <arg value="--no-interaction" />
@@ -243,7 +243,7 @@
         <if>
             <istrue value="${project.symfony-doctrine-migrations-enable}"/>
             <then>
-                <SymfonyConsole command="doctrine:migrations:migrate" checkreturn="true" console="${symfony-bin-console}">
+                <SymfonyConsole command="doctrine:migrations:migrate" checkReturn="true" console="${symfony-bin-console}">
                     <arg name="no-interaction"/>
                 </SymfonyConsole>
             </then>
@@ -252,7 +252,7 @@
 
     <target name="symfony-doctrine-schema-validate" description="Validates the doctrine mapping files"
             depends="symfony-doctrine-migrations-migrate">
-        <SymfonyConsole command="doctrine:schema:validate" checkreturn="true" console="${symfony-bin-console}">
+        <SymfonyConsole command="doctrine:schema:validate" checkReturn="true" console="${symfony-bin-console}">
             <arg name="no-interaction"/>
         </SymfonyConsole>
     </target>
@@ -282,7 +282,7 @@
     </target>
 
     <target name="symfony-doctrine-dump-schema" description="Dump current database scheme">
-        <SymfonyConsole command="doctrine:schema:create" checkreturn="true" propertyName="scheme.sql" console="${symfony-bin-console}">
+        <SymfonyConsole command="doctrine:schema:create" checkReturn="true" propertyName="scheme.sql" console="${symfony-bin-console}">
             <arg name="dump-sql"/>
             <arg name="no-interaction"/>
         </SymfonyConsole>
@@ -368,18 +368,29 @@
         </tar>
     </target>
 
+    <target name="psalm" description="Run static code analysis">
+        <exec executable="${project-vendor-bin-dir}/psalm" dir="." checkReturn="false" outputProperty="psalm-results" returnProperty="psalm-return" />
+        <echo message="${psalm-results}" />
+        <if>
+            <istrue value="${psalm-return}" />
+            <then>
+                <fail /> <!-- fail build in case of errors -->
+            </then>
+        </if>
+    </target>
+
     <target name="package" description="Create tar package for deployment" depends="copy-configs-prod,file-update-deploy-config,
     clean,clean-dev-only-files,prepare,composer-validate,file-update-version,dependencies-install-prod,symfony-regenerate-cache-prod,
     symfony-doctrine-dump-schema,symfony-assets-install-prod,symfony-assetic-dump-prod,package-db-schema,
     package-version,package-archive" />
 
     <target name="build" description="Runs build locally" depends="clean,prepare,check-environment,projectdoc,
-    composer-validate,phplint,symfony-twig-lint,symfony-yaml-lint,symfony-doctrine-schema-validate,phpmd,php-cs-fixer,phpcs,
+    composer-validate,phplint, psalm, symfony-twig-lint,symfony-yaml-lint,symfony-doctrine-schema-validate,phpmd,php-cs-fixer,phpcs,
     phpcpd,symfony-regenerate-cache-dev,symfony-regenerate-cache-prod,symfony-assets-install-dev,symfony-assetic-dump-dev,
     symfony-assets-install-prod,symfony-assetic-dump-prod,dependencies-list-updates,dependencies-security-check" />
 
     <target name="build-ci" description="Runs CI build" depends="copy-configs-ci,dependencies-install,clean,prepare,check-environment,
-    projectdoc,composer-validate,phplint,symfony-twig-lint,symfony-yaml-lint,symfony-doctrine-schema-validate,phpmd,php-cs-fixer,
+    projectdoc,composer-validate,phplint, psalm, symfony-twig-lint,symfony-yaml-lint,symfony-doctrine-schema-validate,phpmd,php-cs-fixer,
     phpcs,phpcpd,symfony-regenerate-cache-dev,symfony-regenerate-cache-prod,symfony-assets-install-dev,symfony-assetic-dump-dev,
     symfony-assets-install-prod,symfony-assetic-dump-prod,dependencies-list-updates,dependencies-security-check" />
 

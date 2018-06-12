@@ -2,6 +2,6 @@
 
 namespace PhpOfBy\SecurityBundle\Service;
 
-interface UserManagerServiceInterface
+interface UserServiceInterface
 {
 }

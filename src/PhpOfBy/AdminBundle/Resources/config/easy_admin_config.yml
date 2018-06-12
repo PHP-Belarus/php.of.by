@@ -10,16 +10,15 @@ easy_admin:
                     - 'username'
                     - 'email'
                     - { property: 'plainPassword', type: 'text', label: 'Password' }
-                    - 'roles'
-                    - 'lastLogin'
+                    - { property: 'roles', type: 'PhpOfBy\SecurityBundle\Form\Type\RolesChoiceType' }
             edit:
                 fields:
                       - 'enabled'
                       - 'username'
                       - 'email'
                       - { property: 'plainPassword', type: 'text', label: 'Password', type_options: { required: false }}
-                      - 'roles'
-                      - 'lastLogin'
+                      - { property: 'roles', type: 'PhpOfBy\SecurityBundle\Form\Type\RolesChoiceType' }
+                      - { property: 'lastLogin', type: 'Symfony\Component\Form\Extension\Core\Type\DateTimeType', type_options: { widget: 'single_text', attr: {readonly: true}}}
         Article:
             class: 'PhpOfBy\ContentBundle\Entity\Article'
             list:
