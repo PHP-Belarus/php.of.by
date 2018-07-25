@@ -4,6 +4,7 @@ namespace PhpOfBy\WebsiteBundle\Controller;
 
 use CommonBundle\Controller\AbstractServiceController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration as Mvc;
+use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @Mvc\Route(service="phpofby_website.controller.default")
@@ -11,7 +12,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration as Mvc;
 class DefaultController extends AbstractServiceController
 {
     /**
-     * @Mvc\Route("/")
+     * @Route("/")
      * @Mvc\Template
      *
      * @return array
