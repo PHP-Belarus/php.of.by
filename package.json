@@ -1,8 +1,9 @@
 {
     "devDependencies": {
-        "@symfony/webpack-encore": "^0.19.0",
+        "@symfony/webpack-encore": "^0.21.0",
         "less": "^3.0.4",
-        "less-loader": "^4.1.0"
+        "less-loader": "^4.1.0",
+        "webpack-notifier": "^1.6.0"
     },
     "license": "MIT",
     "private": true,
@@ -10,6 +11,6 @@
         "dev-server": "encore dev-server",
         "dev": "encore dev",
         "watch": "encore dev --watch",
-        "build": "encore production"
+        "build": "encore production --progress"
     }
 }

@@ -50,7 +50,7 @@ Add repository for php 7.1:
     sudo sh -c 'echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
 
 
-Install required php modules ``sudo apt-get update && sudo apt-get install -y php7.1 php7.1-cli php7.1-intl php7.1-xdebug php7.1-mysqlnd php7.1-xml php7.1-mbstring php7.1-zip php7.1-fpm`` Create and enable ``common.ini``:
+Install required php modules ``sudo apt-get update && sudo apt-get install -y php7.1 php7.1-cli php7.1-intl php7.1-xdebug php7.1-mysqlnd php7.1-xml php7.1-mbstring php7.1-zip php7.1-fpm php7.1-curl`` Create and enable ``common.ini``:
 
   ::
 

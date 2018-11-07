@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
     <title>{% if title is defined %}{{ title }} - {% endif %}PhpOfBy</title>
+    <script src="{{ asset('runtime.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('css/common.css') }}"/>
     {% block stylesheets %}{% endblock %}
     {{ macros.getGoogleAnalyticsCode(google_analytics_id) }}

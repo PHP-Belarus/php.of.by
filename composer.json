@@ -19,10 +19,12 @@
     ],
     "require": {
         "php": "^7.1.3",
+        "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-pdo": "*",
         "ext-pdo_mysql": "*",
         "ext-zip": "*",
+        "deployer/deployer": "6.3.*",
         "easycorp/easyadmin-bundle": "1.*",
         "friendsofsymfony/ckeditor-bundle": "1.*",
         "friendsofsymfony/user-bundle": "2.1.*",
@@ -30,28 +32,28 @@
         "pear/archive_tar": "1.4.*",
         "pear/pear-core-minimal": "1.*",
         "sensio/framework-extra-bundle": "^5.1",
-        "sensiolabs/security-checker": "4.*",
+        "sensiolabs/security-checker": "5.*",
         "stof/doctrine-extensions-bundle": "1.3.*",
-        "symfony/asset": "^4.1",
-        "symfony/console": "^4.1",
-        "symfony/dotenv": "^4.1",
-        "symfony/expression-language": "^4.1",
-        "symfony/flex": "^1.0",
-        "symfony/form": "^4.1",
-        "symfony/framework-bundle": "^4.1",
-        "symfony/lts": "^4@dev",
+        "symfony/asset": "*",
+        "symfony/console": "*",
+        "symfony/dotenv": "*",
+        "symfony/expression-language": "*",
+        "symfony/flex": "^1.1",
+        "symfony/form": "*",
+        "symfony/framework-bundle": "*",
         "symfony/monolog-bundle": "^3.1",
         "symfony/orm-pack": "*",
-        "symfony/process": "^4.1",
+        "symfony/process": "*",
         "symfony/requirements-checker": "1.*",
-        "symfony/security-bundle": "^4.1",
+        "symfony/security-bundle": "*",
         "symfony/serializer-pack": "*",
         "symfony/swiftmailer-bundle": "^3.1",
-        "symfony/twig-bundle": "^4.1",
-        "symfony/validator": "^4.1",
-        "symfony/web-link": "^4.1",
-        "symfony/webpack-encore-pack": "*",
-        "symfony/yaml": "^4.1"
+        "symfony/translation": "*",
+        "symfony/twig-bundle": "*",
+        "symfony/validator": "*",
+        "symfony/web-link": "*",
+        "symfony/webpack-encore-bundle": "^1.0",
+        "symfony/yaml": "*"
     },
     "require-dev": {
         "elao/web-profiler-extra-bundle": "2.*",
@@ -64,13 +66,13 @@
         "symfony/debug-pack": "*",
         "symfony/maker-bundle": "^1.0",
         "symfony/profiler-pack": "*",
-        "symfony/test-pack": "^1.0",
-        "symfony/web-server-bundle": "^4.1",
+        "symfony/test-pack": "*",
+        "symfony/web-server-bundle": "*",
         "vimeo/psalm": "2.*"
     },
     "config": {
         "platform": {
-            "php": "7.1.18"
+            "php": "7.1.23"
         },
         "preferred-install": {
             "*": "dist"
@@ -92,6 +94,8 @@
         }
     },
     "replace": {
+        "paragonie/random_compat": "2.*",
+        "symfony/polyfill-ctype": "*",
         "symfony/polyfill-iconv": "*",
         "symfony/polyfill-php71": "*",
         "symfony/polyfill-php70": "*",
@@ -116,7 +120,8 @@
     },
     "extra": {
         "symfony": {
-            "allow-contrib": false
+            "allow-contrib": false,
+            "require": "4.1.*"
         },
         "public-dir": "web"
     }

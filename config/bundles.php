@@ -24,4 +24,5 @@ return [
     PhpOfBy\SecurityBundle\PhpOfBySecurityBundle::class => ['all' => true],
     PhpOfBy\WebsiteBundle\PhpOfByWebsiteBundle::class => ['all' => true],
     Elao\WebProfilerExtraBundle\WebProfilerExtraBundle::class => ['dev' => true, 'test' => true],
+    Symfony\WebpackEncoreBundle\WebpackEncoreBundle::class => ['all' => true],
 ];
