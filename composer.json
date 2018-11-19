@@ -68,7 +68,7 @@
         "symfony/profiler-pack": "*",
         "symfony/test-pack": "*",
         "symfony/web-server-bundle": "*",
-        "vimeo/psalm": "2.*"
+        "vimeo/psalm": "3.*"
     },
     "config": {
         "platform": {
