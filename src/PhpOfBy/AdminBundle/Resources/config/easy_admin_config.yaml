@@ -28,5 +28,5 @@ easy_admin:
                     - 'published'
                     - 'title'
                     - 'publicationDate'
-                    - { property: 'teaser', type: 'ckeditor' }
-                    - { property: 'body', type: 'ckeditor' }
+                    - { property: 'teaser', type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
+                    - { property: 'body', type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
