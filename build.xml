@@ -140,7 +140,6 @@
         <SymfonyConsole command="security:check" checkReturn="true" console="${symfony-bin-console}">
             <arg value="./composer.lock" />
             <arg value="--no-interaction" />
-            <arg value="--end-point=http://security.sensiolabs.org/check_lock" /> <!-- Remove this line when travis-ci fix bug with php ssl in image (https://github.com/travis-ci/travis-ci/issues/6339) -->
         </SymfonyConsole>
     </target>
 
