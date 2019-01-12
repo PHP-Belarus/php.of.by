@@ -24,7 +24,7 @@
         "ext-pdo": "*",
         "ext-pdo_mysql": "*",
         "ext-zip": "*",
-        "deployer/deployer": "6.3.*",
+        "deployer/deployer": "^6.4.0",
         "easycorp/easyadmin-bundle": "2.*",
         "friendsofsymfony/ckeditor-bundle": "2.*",
         "friendsofsymfony/user-bundle": "2.1.*",
@@ -72,7 +72,7 @@
     },
     "config": {
         "platform": {
-            "php": "7.1.23"
+            "php": "7.1.25"
         },
         "preferred-install": {
             "*": "dist"
