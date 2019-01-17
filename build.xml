@@ -412,7 +412,7 @@
     symfony-assets-install-prod,encore-build-assets-prod,dependencies-list-updates,dependencies-security-check" />
 
     <target name="build-ci" description="Runs CI build" depends="copy-configs-ci,dependencies-install,clean,prepare,check-environment,
-    projectdoc,composer-validate,phplint, psalm, symfony-twig-lint,symfony-yaml-lint,symfony-doctrine-schema-validate,phpmd,php-cs-fixer,
+    projectdoc,composer-validate,phplint, psalm, symfony-twig-lint,symfony-yaml-lint,symfony-doctrine-schema-validate,phpmd,
     phpcs,phpcpd,symfony-regenerate-cache-dev,symfony-regenerate-cache-prod,symfony-assets-install-dev,encore-build-assets-dev,
     symfony-assets-install-prod,encore-build-assets-prod,dependencies-list-updates,dependencies-security-check" />
 

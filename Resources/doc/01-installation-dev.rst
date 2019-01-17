@@ -39,9 +39,9 @@ Add nginx repos:
 Install nginx via ``sudo apt-get update && sudo apt-get install -y nginx``
 
 
-Install PHP 7.1
+Install PHP 7.3
 ~~~~~~~~~~~~~~~
-Add repository for php 7.1:
+Add repository for php 7.3:
 
   ::
 
@@ -50,21 +50,22 @@ Add repository for php 7.1:
     sudo sh -c 'echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
 
 
-Install required php modules ``sudo apt-get update && sudo apt-get install -y php7.1 php7.1-cli php7.1-intl php7.1-xdebug php7.1-mysqlnd php7.1-xml php7.1-mbstring php7.1-zip php7.1-fpm php7.1-curl`` Create and enable ``common.ini``:
+Install required php modules ``sudo apt-get update && sudo apt-get install -y php7.3 php7.3-cli php7.3-intl php7.3-xdebug php7.3-mysqlnd php7.3-xml php7.3-mbstring php7.3-zip php7.3-fpm php7.3-curl`` Create and enable ``common.ini``:
 
   ::
 
-    echo "; priority=99" | sudo tee /etc/php/7.1/mods-available/common.ini > /dev/null
-    echo "date.timezone=Europe/Minsk" | sudo tee -a /etc/php/7.1/mods-available/common.ini > /dev/null
-    echo "short_open_tag=0" | sudo tee -a /etc/php/7.1/mods-available/common.ini > /dev/null
-    echo "xdebug.max_nesting_level=250" | sudo tee -a /etc/php/7.1/mods-available/xdebug.ini > /dev/null
-    echo "xdebug.var_display_max_depth=5" | sudo tee -a /etc/php/7.1/mods-available/xdebug.ini > /dev/null
+    echo "; priority=99" | sudo tee /etc/php/7.3/mods-available/common.ini > /dev/null
+    echo "date.timezone=Europe/Minsk" | sudo tee -a /etc/php/7.3/mods-available/common.ini > /dev/null
+    echo "short_open_tag=0" | sudo tee -a /etc/php/7.3/mods-available/common.ini > /dev/null
+    echo "xdebug.max_nesting_level=250" | sudo tee -a /etc/php/7.3/mods-available/xdebug.ini > /dev/null
+    echo "xdebug.var_display_max_depth=5" | sudo tee -a /etc/php/7.3/mods-available/xdebug.ini > /dev/null
+    echo "opcache.optimization_level=0x7FFFBBFF ; Remove some optimisations, otherwise php with xdebug will fail" | sudo tee -a /etc/php/7.3/mods-available/xdebug.ini > /dev/null
     sudo phpenmod common
 
 
-Open php fpm config file ``sudo mcedit /etc/php/7.1/fpm/pool.d/www.conf``, find ``listen = /run/php/php7.1-fpm.sock`` and replace with ``listen = 127.0.0.1:9000``.
+Open php fpm config file ``sudo mcedit /etc/php/7.3/fpm/pool.d/www.conf``, find ``listen = /run/php/php7.3-fpm.sock`` and replace with ``listen = 127.0.0.1:9000``.
 
-Restart ``php-fpm`` using command ``sudo service php7.1-fpm restart``.
+Restart ``php-fpm`` using command ``sudo service php7.3-fpm restart``.
 
 
 Install node.js and Yarn
