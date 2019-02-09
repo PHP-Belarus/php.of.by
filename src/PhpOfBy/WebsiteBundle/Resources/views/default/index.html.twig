@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('css/front.css') }}"/>
+    {{ encore_entry_link_tags('css/front') }}
 {% endblock %}
 
 {% block hero %}

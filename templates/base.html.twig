@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
     <title>{% if title is defined %}{{ title }} - {% endif %}PhpOfBy</title>
+    {# It look that we should use encore_entry_script_tags() for js, when it appears in webpack.config.js #}
     <script src="{{ asset('runtime.js') }}"></script>
-    <link rel="stylesheet" href="{{ asset('css/common.css') }}"/>
+    {{ encore_entry_link_tags('css/common') }}
     {% block stylesheets %}{% endblock %}
     {{ macros.getGoogleAnalyticsCode(google_analytics_id) }}
 </head>
