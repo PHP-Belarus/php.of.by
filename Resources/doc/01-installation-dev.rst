@@ -59,7 +59,6 @@ Install required php modules ``sudo apt-get update && sudo apt-get install -y ph
     echo "short_open_tag=0" | sudo tee -a /etc/php/7.3/mods-available/common.ini > /dev/null
     echo "xdebug.max_nesting_level=250" | sudo tee -a /etc/php/7.3/mods-available/xdebug.ini > /dev/null
     echo "xdebug.var_display_max_depth=5" | sudo tee -a /etc/php/7.3/mods-available/xdebug.ini > /dev/null
-    echo "opcache.optimization_level=0x7FFFBBFF ; Remove some optimisations, otherwise php with xdebug will fail" | sudo tee -a /etc/php/7.3/mods-available/xdebug.ini > /dev/null
     sudo phpenmod common
 
 

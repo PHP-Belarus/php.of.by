@@ -114,7 +114,7 @@
         <SymfonyConsole command="ckeditor:install" checkReturn="true" console="${symfony-bin-console}" >
             <arg value="-nq" />
         </SymfonyConsole>
-        <exec command="${project.yarn-bin} install" />
+        <exec command="${project.yarn-bin} install" passthru="true" />
     </target>
 
     <target name="dependencies-install-prod" description="Install only prod dependencies using composer" depends="make-console-executable">
@@ -127,7 +127,7 @@
         <SymfonyConsole command="ckeditor:install" checkReturn="true" console="${symfony-bin-console}" >
             <arg value="-nq" />
         </SymfonyConsole>
-        <exec command="${project.yarn-bin} install" />
+        <exec command="${project.yarn-bin} install" passthru="true" />
     </target>
 
     <target name="dependencies-list-updates" description="Check updates for all dependencies">
