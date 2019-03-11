@@ -297,7 +297,7 @@
     </target>
 
     <target name="phpcs" description="Run code style checks" depends="initialize-autoload">
-        <phpcodesniffer standard="PSR1,PSR2" encoding="UTF-8">
+        <phpcodesniffer standard="PSR1,PSR2" encoding="UTF-8" haltonerror="true" haltonwarning="true">
             <fileset refid="src-php"/>
             <formatter type="full" usefile="false" />
         </phpcodesniffer>
@@ -401,6 +401,13 @@
         </if>
     </target>
 
+    <target name="dependencies-list-outdated" description="Check for new versions of dependencies">
+        <composer composer="${project-composer-phar}" command="outdated">
+            <arg value="-D"/>
+        </composer>
+        <exec command="${project.yarn-bin} install" passthru="true" />
+    </target>
+
     <target name="package" description="Create tar package for deployment" depends="copy-configs-prod,file-update-deploy-config,
     clean,prepare,composer-validate,file-update-version,dependencies-install-prod,symfony-regenerate-cache-prod,
     symfony-doctrine-dump-schema,symfony-assets-install-prod,encore-build-assets-prod,clean-dev-only-files,package-db-schema,
@@ -409,11 +416,11 @@
     <target name="build" description="Runs build locally" depends="clean,prepare,check-environment,projectdoc,
     composer-validate,phplint, psalm, symfony-twig-lint,symfony-yaml-lint,symfony-doctrine-schema-validate,phpmd,php-cs-fixer,phpcs,
     phpcpd,symfony-regenerate-cache-dev,symfony-regenerate-cache-prod,symfony-assets-install-dev,encore-build-assets-dev,
-    symfony-assets-install-prod,encore-build-assets-prod,dependencies-list-updates,dependencies-security-check" />
+    symfony-assets-install-prod,encore-build-assets-prod,dependencies-list-updates,dependencies-security-check, dependencies-list-outdated" />
 
     <target name="build-ci" description="Runs CI build" depends="copy-configs-ci,dependencies-install,clean,prepare,check-environment,
     projectdoc,composer-validate,phplint, psalm, symfony-twig-lint,symfony-yaml-lint,symfony-doctrine-schema-validate,phpmd,
     phpcs,phpcpd,symfony-regenerate-cache-dev,symfony-regenerate-cache-prod,symfony-assets-install-dev,encore-build-assets-dev,
-    symfony-assets-install-prod,encore-build-assets-prod,dependencies-list-updates,dependencies-security-check" />
+    symfony-assets-install-prod,encore-build-assets-prod,dependencies-list-updates,dependencies-security-check, dependencies-list-outdated" />
 
 </project>
