@@ -1,6 +1,6 @@
 security:
     encoders:
-        PhpOfBy\SecurityBundle\Entity\User: bcrypt
+        PhpOfBy\SecurityBundle\Entity\User: auto
 
     role_hierarchy:
         ROLE_SUPER_ADMIN:
