@@ -1,4 +1,8 @@
 easy_admin:
+    design:
+        form_theme: # Both themes are for ckeditor integration
+            - "@EasyAdmin/form/bootstrap_4.html.twig"
+            - "@FOSCKEditor/Form/ckeditor_widget.html.twig"
     entities:
         User:
             class: '%fos_user_bundle_user_class%'

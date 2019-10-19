@@ -6,5 +6,3 @@ twig:
         project_name: '%project_name%'
         project_version: '%project_version%'
         google_analytics_id: '%env(resolve:GOOGLE_ANALYTICS_ID)%'
-    form_themes:
-        - '@FOSCKEditor/Form/ckeditor_widget.html.twig' # Activate ckeditor for fields
