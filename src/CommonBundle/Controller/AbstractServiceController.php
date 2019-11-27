@@ -291,7 +291,6 @@ abstract class AbstractServiceController
     /**
      * Returns a BinaryFileResponse object with original or customized file name and disposition header.
      *
-     *
      * @final
      *
      * @param \SplFileInfo|string $file        File object or path to file to be sent as response
@@ -317,7 +316,6 @@ abstract class AbstractServiceController
     /**
      * Adds a flash message to the current session for type.
      *
-     *
      * @final
      *
      * @param string $type
@@ -332,7 +330,6 @@ abstract class AbstractServiceController
 
     /**
      * Checks if the attributes are granted against the current authentication token and optionally supplied subject.
-     *
      *
      * @final
      *
@@ -351,7 +348,6 @@ abstract class AbstractServiceController
     /**
      * Throws an exception unless the attributes are granted against the current authentication token and optionally
      * supplied subject.
-     *
      *
      * @final
      *
@@ -438,7 +434,6 @@ abstract class AbstractServiceController
      * This will result in a 403 response code. Usage example:
      *
      *     throw $this->createAccessDeniedException('Unable to access this page!');
-     *
      *
      * @final
      *
