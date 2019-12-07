@@ -1,5 +1,7 @@
 language: php
 
+os: [linux]
+
 cache:
   directories:
     - $HOME/.composer/cache
@@ -8,6 +10,7 @@ cache:
 
 php:
   - 7.3
+  - 7.4
 
 services:
   - mysql
@@ -35,6 +38,6 @@ before_deploy: "php phing.phar package"
 deploy:
   provider: script
   script: ./bin/deploy-to-prod.sh
-  skip_cleanup: true
+  cleanup: true
   on:
       tags: true
