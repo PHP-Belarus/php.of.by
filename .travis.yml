@@ -38,6 +38,6 @@ before_deploy: "php phing.phar package"
 deploy:
   provider: script
   script: ./bin/deploy-to-prod.sh
-  cleanup: false
+  skip_cleanup: true
   on:
       tags: true
