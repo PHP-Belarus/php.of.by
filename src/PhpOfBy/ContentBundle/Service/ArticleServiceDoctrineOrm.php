@@ -3,7 +3,7 @@
 namespace PhpOfBy\ContentBundle\Service;
 
 use Doctrine\Bundle\DoctrineBundle\Registry as DoctrineRegistry;
-use Doctrine\Common\Persistence\ObjectRepository;
+use Doctrine\Persistence\ObjectRepository;
 
 class ArticleServiceDoctrineOrm implements ArticleServiceInterface
 {
