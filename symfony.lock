@@ -183,7 +183,7 @@
         "version": "1.0.1"
     },
     "php": {
-        "version": "7.3.13"
+        "version": "7.3.14"
     },
     "php-cs-fixer/diff": {
         "version": "v1.3.0"
