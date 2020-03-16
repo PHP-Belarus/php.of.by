@@ -405,7 +405,7 @@
         <composer composer="${project-composer-phar}" command="outdated">
             <arg value="-D"/>
         </composer>
-        <exec command="${project.yarn-bin} install" passthru="true" />
+        <exec command="${project.yarn-bin} outdated" passthru="true" />
     </target>
 
     <target name="package" description="Create tar package for deployment" depends="copy-configs-prod,file-update-deploy-config,
