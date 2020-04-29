@@ -73,7 +73,7 @@
     },
     "config": {
         "platform": {
-            "php": "7.3.16"
+            "php": "7.3.17"
         },
         "preferred-install": {
             "*": "dist"

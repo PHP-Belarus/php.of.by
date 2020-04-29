@@ -83,15 +83,6 @@
     "doctrine/reflection": {
         "version": "v1.0.0"
     },
-    "easycorp/easy-log-handler": {
-        "version": "1.0",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "1.0",
-            "ref": "70062abc2cd58794d2a90274502f81b55cd9951b"
-        }
-    },
     "easycorp/easyadmin-bundle": {
         "version": "1.17",
         "recipe": {
@@ -183,7 +174,7 @@
         "version": "1.0.1"
     },
     "php": {
-        "version": "7.3.16"
+        "version": "7.3.17"
     },
     "php-cs-fixer/diff": {
         "version": "v1.3.0"
@@ -244,6 +235,9 @@
     },
     "psr/log": {
         "version": "1.0.2"
+    },
+    "sebastian/code-unit": {
+        "version": "1.0.1"
     },
     "sebastian/code-unit-reverse-lookup": {
         "version": "1.0.1"
