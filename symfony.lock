@@ -125,6 +125,15 @@
     "gedmo/doctrine-extensions": {
         "version": "v2.4.35"
     },
+    "laminas/laminas-code": {
+        "version": "3.4.1"
+    },
+    "laminas/laminas-eventmanager": {
+        "version": "3.2.1"
+    },
+    "laminas/laminas-zendframework-bridge": {
+        "version": "1.0.4"
+    },
     "monolog/monolog": {
         "version": "1.23.0"
     },
@@ -174,7 +183,7 @@
         "version": "1.0.1"
     },
     "php": {
-        "version": "7.3.20"
+        "version": "7.4"
     },
     "php-cs-fixer/diff": {
         "version": "v1.3.0"
@@ -640,6 +649,9 @@
     },
     "vimeo/psalm": {
         "version": "2.0.4"
+    },
+    "webimpress/safe-writer": {
+        "version": "2.0.1"
     },
     "webmozart/assert": {
         "version": "1.3.0"

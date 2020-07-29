@@ -120,9 +120,9 @@ Sudo for developer account
     echo "DEVELOPERS ALL=NOPASSWD: SERVICE_CMDS" | sudo tee -a /etc/sudoers.d/developers > /dev/null
 
 
-Install MySQL
-~~~~~~~~~~~~~
-Install mysql 5.5 using command ``sudo apt-get install -y default-mysql-client default-mysql-server``. Set ``root`` as password for ``root`` account. Update ``my.cnf`` and restart mysql
+Install MariaDB
+~~~~~~~~~~~~~~~
+Install MariaDB using command ``sudo apt-get install -y default-mysql-client default-mysql-server``. Set ``root`` as password for ``root`` account. Update ``my.cnf`` and restart mysql
 
   ::
 

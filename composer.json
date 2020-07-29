@@ -18,7 +18,7 @@
         }
     ],
     "require": {
-        "php": "^7.3.0",
+        "php": "^7.4.0",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-pdo": "*",
@@ -72,9 +72,6 @@
         "vimeo/psalm": "3.*"
     },
     "config": {
-        "platform": {
-            "php": "7.3.20"
-        },
         "preferred-install": {
             "*": "dist"
         },
