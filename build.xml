@@ -111,9 +111,6 @@
         <composer composer="${project-composer-phar}" command="install">
             <arg value="--optimize-autoloader"/>
         </composer>
-        <SymfonyConsole command="ckeditor:install" checkReturn="true" console="${symfony-bin-console}" >
-            <arg value="-nq" />
-        </SymfonyConsole>
         <exec command="${project.yarn-bin} install" passthru="true" />
     </target>
 
@@ -124,9 +121,6 @@
             <arg value="--optimize-autoloader" />
             <arg value="--no-dev" />
         </composer>
-        <SymfonyConsole command="ckeditor:install" checkReturn="true" console="${symfony-bin-console}" >
-            <arg value="-nq" />
-        </SymfonyConsole>
         <exec command="${project.yarn-bin} install --prod" passthru="true" />
     </target>
 
