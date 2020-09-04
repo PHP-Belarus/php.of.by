@@ -24,6 +24,7 @@
     <property name="php-bin" value="php" />
     <property name="project-composer-phar" value="composer.phar" />
     <property name="php-cs-fixer-bin" value="${project-vendor-bin-dir}/php-cs-fixer" />
+    <property name="php-cpd-bin" value="${project-vendor-bin-dir}/phpcpd" />
     <property name="project-web-dir" value="web"/>
     <property name="project-web-bundles-dir" value="${project-web-dir}/bundles"/>
     <property name="project-web-css-dir" value="${project-web-dir}/css"/>
@@ -284,10 +285,14 @@
     </target>
 
     <target name="phpcpd" description="Find duplicates in code" depends="initialize-autoload">
-        <phpcpd>
-            <fileset refid="src-php"/>
-            <formatter type="default" useFile="false"/>
-        </phpcpd>
+        <exec executable="${php-bin}" logoutput="true" checkreturn="true">
+            <arg path="${php-cpd-bin}" />
+            <arg value="${project-src-dir}/" />
+        </exec>
+        <!--        <phpcpd>-->
+<!--            <fileset refid="src-php"/>-->
+<!--            <formatter type="default" useFile="false"/>-->
+<!--        </phpcpd>-->
     </target>
 
     <target name="phpcs" description="Run code style checks" depends="initialize-autoload">
