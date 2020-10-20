@@ -46,7 +46,7 @@
         "symfony/monolog-bundle": "^3.1",
         "symfony/orm-pack": "*",
         "symfony/process": "4.4.*",
-        "symfony/requirements-checker": "1.*",
+        "symfony/requirements-checker": "^2.0",
         "symfony/security-bundle": "4.4.*",
         "symfony/serializer-pack": "*",
         "symfony/translation": "4.4.*",
@@ -68,7 +68,7 @@
         "symfony/maker-bundle": "^1.0",
         "symfony/profiler-pack": "*",
         "symfony/test-pack": "*",
-        "vimeo/psalm": "3.*"
+        "vimeo/psalm": "^4.0"
     },
     "config": {
         "preferred-install": {
