@@ -4,11 +4,10 @@ namespace PhpOfBy\ContentBundle\Service;
 
 use Doctrine\Bundle\DoctrineBundle\Registry as DoctrineRegistry;
 use Doctrine\Persistence\ObjectRepository;
+use PhpOfBy\ContentBundle\Entity\Article;
 
 class ArticleServiceDoctrineOrm implements ArticleServiceInterface
 {
-    const ENTITY_NAME = 'PhpOfByContentBundle:Article';
-
     /** @var ObjectRepository */
     private $entityManager;
 
@@ -19,6 +18,6 @@ class ArticleServiceDoctrineOrm implements ArticleServiceInterface
      */
     public function __construct(DoctrineRegistry $registry)
     {
-        $this->entityManager = $registry->getManager()->getRepository(self::ENTITY_NAME);
+        $this->entityManager = $registry->getManager()->getRepository(Article::class);
     }
 }
