@@ -131,13 +131,6 @@
         </composer>
     </target>
 
-    <target name="dependencies-security-check" description="Check security problems for all dependencies">
-        <SymfonyConsole command="security:check" checkReturn="true" console="${symfony-bin-console}">
-            <arg value="./composer.lock" />
-            <arg value="--no-interaction" />
-        </SymfonyConsole>
-    </target>
-
     <target name="clean" description="Clean build artifacts">
         <delete dir="${project-web-bundles-dir}"/>
         <delete dir="${project-web-css-dir}"/>
@@ -424,11 +417,11 @@
     <target name="build" description="Runs build locally" depends="clean,prepare,check-environment,projectdoc,
     composer-validate,phplint, psalm, symfony-twig-lint, symfony-yaml-lint, symfony-doctrine-schema-validate, phpmd, php-cs-fixer, phpcs,
     phpcpd,symfony-regenerate-cache-dev,symfony-regenerate-cache-prod,symfony-assets-install-dev,encore-build-assets-dev,
-    symfony-assets-install-prod,encore-build-assets-prod,dependencies-list-updates,dependencies-security-check, dependencies-list-outdated" />
+    symfony-assets-install-prod,encore-build-assets-prod,dependencies-list-updates, dependencies-list-outdated" />
 
     <target name="build-ci" description="Runs CI build" depends="copy-configs-ci,dependencies-install,clean,prepare,check-environment,
     projectdoc,composer-validate,phplint, psalm, symfony-twig-lint,symfony-yaml-lint,symfony-doctrine-schema-validate,phpmd,
     php-cs-fixer-ci, phpcs,phpcpd,symfony-regenerate-cache-dev,symfony-regenerate-cache-prod,symfony-assets-install-dev,encore-build-assets-dev,
-    symfony-assets-install-prod,encore-build-assets-prod,dependencies-list-updates,dependencies-security-check, dependencies-list-outdated" />
+    symfony-assets-install-prod,encore-build-assets-prod,dependencies-list-updates, dependencies-list-outdated" />
 
 </project>

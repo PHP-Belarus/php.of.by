@@ -31,7 +31,6 @@
         "pear/archive_tar": "1.4.*",
         "pear/pear-core-minimal": "1.*",
         "sensio/framework-extra-bundle": "^5.1",
-        "sensiolabs/security-checker": "^6.0",
         "stof/doctrine-extensions-bundle": "^1.4.0",
         "symfony/asset": "4.4.*",
         "symfony/console": "4.4.*",
@@ -62,6 +61,7 @@
         "pdepend/pdepend": "2.*",
         "phpmd/phpmd": "2.*",
         "phpunit/phpunit": "^9.3.8",
+        "roave/security-advisories": "dev-master",
         "sebastian/phpcpd": "^6.0.2",
         "squizlabs/php_codesniffer": "2.*",
         "symfony/debug-pack": "*",
@@ -102,7 +102,6 @@
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd",
-            "security-checker security:check": "script",
             "requirements-checker": "script"
         },
         "post-install-cmd": [
