@@ -1,8 +1,8 @@
 {
     "dependencies": {
-        "@symfony/webpack-encore": "^0.33",
+        "@symfony/webpack-encore": "^1.0.4",
         "less": "^4.0.0",
-        "less-loader": "^7.0.1",
+        "less-loader": "^8.0.0",
         "webpack-notifier": "^1.6.0"
     },
     "license": "MIT",

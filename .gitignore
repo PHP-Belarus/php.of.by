@@ -15,6 +15,7 @@
 ###> symfony/framework-bundle ###
 /.env
 /web/bundles/
+/web/images/
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
