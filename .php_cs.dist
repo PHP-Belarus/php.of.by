@@ -17,6 +17,7 @@ return PhpCsFixer\Config::create()
         'phpdoc_order' => true,
         'semicolon_after_instruction' => true,
         'no_superfluous_phpdoc_tags' => false,
+        'concat_space' => ['spacing' => 'one'],
     ))
     ->setFinder(
         PhpCsFixer\Finder::create()

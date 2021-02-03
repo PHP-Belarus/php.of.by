@@ -20,6 +20,7 @@
     <property name="project-vendor-dir" value="vendor" />
     <property name="project-vendor-bin-dir" value="vendor/bin" />
     <property name="project-src-dir" value="src" />
+    <property name="project-tests-dir" value="tests" />
     <property name="env" value="/usr/bin/env" />
     <property name="php-bin" value="php" />
     <property name="project-composer-phar" value="composer.phar" />
@@ -298,10 +299,18 @@
     </target>
 
     <target name="phpcs" description="Run code style checks" depends="initialize-autoload">
-        <phpcodesniffer standard="PSR1,PSR2" encoding="UTF-8" haltonerror="true" haltonwarning="true">
-            <fileset refid="src-php"/>
-            <formatter type="full" usefile="false" />
-        </phpcodesniffer>
+        <exec executable="${project-vendor-bin-dir}/phpcs" dir="." checkReturn="false" outputProperty="phpcs-results" returnProperty="phpcs-return" >
+            <arg value="--standard=PSR12" />
+            <arg value="${project-src-dir}" />
+            <arg value="${project-tests-dir}" />
+        </exec>
+        <echo message="${phpcs-results}" />
+        <if>
+            <istrue value="${phpcs-return}" />
+            <then>
+                <fail /> <!-- fail build in case of errors -->
+            </then>
+        </if>
     </target>
 
     <target name="symfony-doctrine-dump-schema" description="Dump current database scheme">
