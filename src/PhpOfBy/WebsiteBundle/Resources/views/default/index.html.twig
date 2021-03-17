@@ -1,16 +1,5 @@
 {% extends 'base.html.twig' %}
 
-{% block stylesheets %}
-    {{ encore_entry_link_tags('css/front') }}
-{% endblock %}
-
-{% block hero %}
-    <div class="hero">
-        <h1 class="title">PhpOfBy</h1>
-        <h3><!-- Sample header --></h3>
-    </div>
-{% endblock %}
-
 {% block content %}
     <div class="row intro">
         <div class="col c2">&nbsp;</div>
@@ -68,21 +57,6 @@
             <p>Присоединяйтесь к нашему сообществу через <a href="https://www.facebook.com/groups/minsk.user.group">нашу группу в Facebook</a> и <a href="https://t.me/phpofby">Telegram канал</a>, предлагайте темы для обсуждения или выступайте со своей темой.</p>
         </div>
         <div class="col c2">&nbsp;</div>
-    </div>
-
-    <div class="row intro">
-        <div class="col c3">
-            <a href="https://www.facebook.com/groups/minsk.user.group"><img src="{{ asset('/bundles/phpofbywebsite/images/fb-link.png') }}"></a>
-        </div>
-        <div class="col c3">
-            <a href="https://hoster.by"><img src="{{ asset('/bundles/phpofbywebsite/images/hosterby.png') }}"></a>
-        </div>
-        <div class="col c3">
-            <a href="https://www.youtube.com/channel/UC1QF6l3BUs8b1i-DWqCquhw"><img src="{{ asset('/bundles/phpofbywebsite/images/youtube-link.png') }}"></a>
-        </div>
-        <div class="col c3" style="width: 81px;">
-            <a href="https://community-z.com/communities/php-of-by/"><img src="{{ asset('/bundles/phpofbywebsite/images/community-z-link.svg') }}"></a>
-        </div>
     </div>
 
 {% endblock %}

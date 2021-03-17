@@ -8,22 +8,45 @@
     <title>{% if title is defined %}{{ title }} - {% endif %}PhpOfBy</title>
     {{ encore_entry_script_tags('css/common') }}
     {{ encore_entry_link_tags('css/common') }}
-    {% block stylesheets %}{% endblock %}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('css/front') }}
+    {% endblock %}
     {{ macros.getGoogleAnalyticsCode(google_analytics_id) }}
 </head>
 <body>
 
 {{ macros.getTopMenu() }}
 
-{% block hero %}{% endblock %}
+{% block hero %}
+    <div class="hero">
+        <h1 class="title">PhpOfBy</h1>
+        <h3><!-- Sample header --></h3>
+    </div>
+{% endblock %}
 
 <div class="container">
     {% if title is defined %}
-        <h1>{{ title }}</h1>
+        <h1 class="intro">{{ title }}</h1>
     {% endif %}
 
     <section id="content">
         {% block content %}{% endblock %}
+        <br/>
+        <div class="row intro">
+            <div class="col c3">
+                <a href="https://www.facebook.com/groups/minsk.user.group"><img src="{{ asset('/bundles/phpofbywebsite/images/fb-link.png') }}"></a>
+            </div>
+            <div class="col c3">
+                <a href="https://hoster.by"><img src="{{ asset('/bundles/phpofbywebsite/images/hosterby.png') }}"></a>
+            </div>
+            <div class="col c3">
+                <a href="https://www.youtube.com/channel/UC1QF6l3BUs8b1i-DWqCquhw"><img src="{{ asset('/bundles/phpofbywebsite/images/youtube-link.png') }}"></a>
+            </div>
+            <div class="col c3" style="width: 81px;">
+                <a href="https://community-z.com/communities/php-of-by/"><img src="{{ asset('/bundles/phpofbywebsite/images/community-z-link.svg') }}"></a>
+            </div>
+        </div>
+
     </section>
 </div>
 {% block javascripts %}{% endblock %}

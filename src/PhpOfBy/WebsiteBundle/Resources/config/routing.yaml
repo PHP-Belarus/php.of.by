@@ -1,3 +1,9 @@
 phpofby_website_annotation:
     resource: "@PhpOfByWebsiteBundle/Controller"
     type: annotation
+
+phpofby_website_telegram_rules:
+    path: /rules
+    controller:    Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+    defaults:
+        template: '@PhpOfByWebsite/static/rules.html.twig'
