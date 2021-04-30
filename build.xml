@@ -100,7 +100,9 @@
     </target>
 
     <target name="check-environment" description="Check that environment is suitable for symfony">
-        <exec command="${php-bin} ${project-vendor-bin-dir}/requirements-checker" checkReturn="true" logoutput="true" />
+        <exec executable="${php-bin}" checkReturn="true" logoutput="true" >
+            <arg value="${project-vendor-bin-dir}/requirements-checker" />
+        </exec>
     </target>
 
     <target name="dependencies-install" description="Install all dependencies using composer" depends="make-console-executable">
@@ -113,7 +115,9 @@
         <composer composer="${project-composer-phar}" command="install">
             <arg value="--optimize-autoloader"/>
         </composer>
-        <exec command="${project.yarn-bin} install" passthru="true" />
+        <exec executable="${project.yarn-bin}" passthru="true" >
+            <arg value="install" />
+        </exec>
     </target>
 
     <target name="dependencies-install-prod" description="Install only prod dependencies using composer" depends="make-console-executable">
@@ -123,7 +127,10 @@
             <arg value="--optimize-autoloader" />
             <arg value="--no-dev" />
         </composer>
-        <exec command="${project.yarn-bin} install --prod" passthru="true" />
+        <exec executable="${project.yarn-bin}" passthru="true" >
+            <arg value=" install" />
+            <arg value="--prod" />
+        </exec>
     </target>
 
     <target name="dependencies-list-updates" description="Check updates for all dependencies">
@@ -238,7 +245,11 @@
     </target>
 
     <target name="encore-build-assets-dev" description="Dumps all assets to the filesystem for dev environment">
-        <exec command="${project.yarn-bin} run encore dev" dir="." checkreturn="false" outputProperty="encore-dev-results" returnProperty="encore-dev-return" />
+        <exec executable="${project.yarn-bin}" dir="." checkreturn="false" outputProperty="encore-dev-results" returnProperty="encore-dev-return">
+            <arg value="run" />
+            <arg value="encore" />
+            <arg value="dev" />
+        </exec>
         <echo message="${encore-dev-results}" />
         <if>
             <istrue value="${encore-dev-return}" />
@@ -249,7 +260,11 @@
     </target>
 
     <target name="encore-build-assets-prod" description="Dumps all assets to the filesystem for prod environment">
-        <exec command="${project.yarn-bin} run encore production" dir="." checkreturn="false" outputProperty="encore-prod-results" returnProperty="encore-prod-return" />
+        <exec executable="${project.yarn-bin}" dir="." checkreturn="false" outputProperty="encore-prod-results" returnProperty="encore-prod-return">
+            <arg value="run" />
+            <arg value="encore" />
+            <arg value="production" />
+        </exec>
         <echo message="${encore-prod-results}" />
         <if>
             <istrue value="${encore-prod-return}" />
@@ -415,7 +430,9 @@
         <composer composer="${project-composer-phar}" command="outdated">
             <arg value="-D"/>
         </composer>
-        <exec command="${project.yarn-bin} outdated" passthru="true" />
+        <exec executable="${project.yarn-bin}" passthru="true">
+            <arg value="outdated" />
+        </exec>
     </target>
 
     <target name="package" description="Create tar package for deployment" depends="copy-configs-prod,file-update-deploy-config,
