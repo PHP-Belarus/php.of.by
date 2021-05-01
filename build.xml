@@ -128,7 +128,7 @@
             <arg value="--no-dev" />
         </composer>
         <exec executable="${project.yarn-bin}" passthru="true" >
-            <arg value=" install" />
+            <arg value="install" />
             <arg value="--prod" />
         </exec>
     </target>
