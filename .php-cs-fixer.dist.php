@@ -1,6 +1,7 @@
 <?php
 
-return PhpCsFixer\Config::create()
+$config = new PhpCsFixer\Config();
+return $config
     ->setUsingCache(false)
     ->setRiskyAllowed(true)
     ->setRules(array(

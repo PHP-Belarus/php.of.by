@@ -6,7 +6,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
-use EasyCorp\Bundle\EasyAdminBundle\Router\CrudUrlGenerator;
+use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use PhpOfBy\ContentBundle\Entity\Article;
 use PhpOfBy\SecurityBundle\Entity\User;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,7 +22,7 @@ class DashboardController extends AbstractDashboardController
      */
     public function index(): Response
     {
-        $routeBuilder = $this->get(CrudUrlGenerator::class)->build();
+        $routeBuilder = $this->get(AdminUrlGenerator::class);
 
         return $this->redirect($routeBuilder->setController(UserCrudController::class)->generateUrl());
     }
