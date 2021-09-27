@@ -86,9 +86,6 @@
     "doctrine/persistence": {
         "version": "v1.0.0"
     },
-    "doctrine/reflection": {
-        "version": "1.2.2"
-    },
     "doctrine/sql-formatter": {
         "version": "1.1.0"
     },
@@ -350,9 +347,6 @@
             "ref": "f8863cbad2f2e58c4b65fa1eac892ab189971bea"
         }
     },
-    "symfony/debug-pack": {
-        "version": "v1.0.5"
-    },
     "symfony/dependency-injection": {
         "version": "v4.1.0"
     },
@@ -464,9 +458,6 @@
     "symfony/options-resolver": {
         "version": "v4.1.0"
     },
-    "symfony/orm-pack": {
-        "version": "v1.0.5"
-    },
     "symfony/phpunit-bridge": {
         "version": "4.1",
         "recipe": {
@@ -508,9 +499,6 @@
     },
     "symfony/process": {
         "version": "v4.1.0"
-    },
-    "symfony/profiler-pack": {
-        "version": "v1.0.3"
     },
     "symfony/property-access": {
         "version": "v4.1.0"
@@ -563,9 +551,6 @@
     "symfony/serializer": {
         "version": "v4.1.0"
     },
-    "symfony/serializer-pack": {
-        "version": "v1.0.1"
-    },
     "symfony/service-contracts": {
         "version": "v1.1.2"
     },
@@ -577,9 +562,6 @@
     },
     "symfony/templating": {
         "version": "v4.1.0"
-    },
-    "symfony/test-pack": {
-        "version": "v1.0.2"
     },
     "symfony/translation": {
         "version": "3.3",
@@ -604,9 +586,6 @@
             "version": "3.3",
             "ref": "f75ac166398e107796ca94cc57fa1edaa06ec47f"
         }
-    },
-    "symfony/twig-pack": {
-        "version": "v1.0.0"
     },
     "symfony/uid": {
         "version": "v5.1.3"
