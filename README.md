@@ -1,7 +1,7 @@
 php.of.by
 =========
 ### Status
-[![Build Status](https://travis-ci.org/PHP-Belarus/php.of.by.svg?branch=master)](https://travis-ci.org/PHP-Belarus/php.of.by)
+[![Build Status](https://travis-ci.com/PHP-Belarus/php.of.by.svg?branch=master)](https://travis-ci.com/PHP-Belarus/php.of.by)
 
 ## How to contribute:
 https://guides.github.com/activities/contributing-to-open-source/
