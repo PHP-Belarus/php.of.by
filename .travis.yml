@@ -2,7 +2,7 @@ language: php
 
 os: [linux]
 
-dist: bionic
+dist: focal
 
 cache:
   directories:
@@ -17,7 +17,7 @@ services:
   - mysql
 
 before_install:
-  - nvm install 12
+  - nvm install 18
   - if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then openssl aes-256-cbc -K $encrypted_38f96163e3a4_key -iv $encrypted_38f96163e3a4_iv -in .travis/deploy.key.enc -out .travis/deploy.key -d; fi
   - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
   - echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
@@ -25,7 +25,7 @@ before_install:
   - sudo apt-get install -y -qq python-docutils yarn
 
 before_script:
-  - mysql -e "create database phpofby DEFAULT CHARACTER SET utf8; grant all on phpofby.* to 'symfony'@'localhost' identified by 'symfony';" -uroot
+  - mysql -e "CREATE DATABASE phpofby DEFAULT CHARACTER SET utf8; CREATE USER 'symfony'@'localhost' identified by 'symfony'; GRANT ALL ON phpofby.* TO 'symfony'@'localhost'" -uroot
 
 script:
   - php phing.phar build-ci

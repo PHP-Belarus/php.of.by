@@ -6,4 +6,5 @@ fos_user:
     firewall_name: main
     user_class: '%fos_user_bundle_user_class%'
     service:
+      mailer: fos_user.mailer.noop
       user_manager: phpofby_security.service.user

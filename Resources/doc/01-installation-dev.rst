@@ -69,8 +69,8 @@ Restart ``php-fpm`` using command ``sudo service php7.4-fpm restart``.
 
 Install node.js and Yarn
 ~~~~~~~~~~~~~~~~~~~~~~~~
-Here we are using version 12 of Node.js.
-We need to add repo via ``curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -``. After that install node via ``sudo apt-get install -y nodejs``.
+Here we are using version 18 of Node.js.
+We need to add repo via ``curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -``. After that install node via ``sudo apt-get install -y nodejs``.
 
 Install Yarn:
 
