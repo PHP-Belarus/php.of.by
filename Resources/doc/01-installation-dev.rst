@@ -1,7 +1,7 @@
 Installation on Dev server
 ==========================
 
-Installation on Debian 10
+Installation on Debian 11
 -------------------------
 
 Install sudo, in case in required
@@ -21,7 +21,7 @@ Log in as newly created user
 
 Install common packages
 ~~~~~~~~~~~~~~~~~~~~~~~
-``sudo apt-get install -y git bash-completion mc python-docutils lsb-release curl``
+``sudo apt-get install -y git bash-completion mc python3-docutils lsb-release curl gnupg2``
 
 
 Install web server
@@ -101,8 +101,6 @@ Edit samba config ``sudo mcedit /etc/samba/smb.conf``
     force create mode = 0644
     directory mask = 0775
     force directory mode = 0775
-    directory security mask = 0775
-    force directory security mode = 0775
     nt acl support = No
     map archive = No
     browseable = No
@@ -150,4 +148,3 @@ Developers accounts
         grant all on phpofby_$USERNAME.* to 'symfony'@'%' identified by 'symfony';"
     sudo ln -s /home/$USERNAME/www/<sitename>/<sitename>.nginx /etc/nginx/conf.d/<sitename>_$USERNAME.conf
     sudo service nginx restart
-
