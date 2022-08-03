@@ -1,5 +1,6 @@
 security:
-    encoders:
+    enable_authenticator_manager: true
+    password_hashers:
         PhpOfBy\SecurityBundle\Entity\User: auto
 
     role_hierarchy:
@@ -22,10 +23,10 @@ security:
             pattern: ^/
             form_login:
                 provider: fos_userbundle
-                csrf_token_generator: security.csrf.token_manager
+                enable_csrf: true
 
             logout:       true
-            anonymous:    true
+            lazy:    true
 
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used

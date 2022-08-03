@@ -6,7 +6,7 @@ services:
       - [ setSerializer, [ '@serializer' ] ]
       - [ setSession, [ '@session' ] ]
       - [ setAuthorizationChecker, [ '@security.authorization_checker' ] ]
-      - [ setTemplating, [ '@templating' ] ]
+      - [ setTemplating, [ '@twig' ] ]
       - [ setFormFactory, [ '@form.factory' ] ]
       - [ setTokenStorage, [ '@security.token_storage' ] ]
       - [ setCsrfTokenManager, [ '@security.csrf.token_manager' ] ]

@@ -21,7 +21,7 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\Security\Csrf\CsrfToken;
 use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Symfony\Component\Serializer\SerializerInterface;
-use Symfony\Component\Templating\EngineInterface;
+use Twig\Environment;
 
 /**
  * Here we suppress phpmd warning because we have to use all this objects.
@@ -42,7 +42,7 @@ abstract class AbstractServiceController
     /** @var AuthorizationCheckerInterface */
     private $authorizationChecker;
 
-    /** @var EngineInterface */
+    /** @var Environment */
     private $templating;
 
     /** @var FormFactoryInterface */
@@ -104,11 +104,11 @@ abstract class AbstractServiceController
     }
 
     /**
-     * @param EngineInterface $templating
+     * @param Environment $templating
      *
      * @return AbstractServiceController
      */
-    public function setTemplating(EngineInterface $templating): AbstractServiceController
+    public function setTemplating(Environment $templating): AbstractServiceController
     {
         $this->templating = $templating;
 
@@ -184,9 +184,9 @@ abstract class AbstractServiceController
     }
 
     /**
-     * @return EngineInterface
+     * @return Environment
      */
-    protected function getTemplating(): EngineInterface
+    protected function getTemplating(): Environment
     {
         return $this->templating;
     }
