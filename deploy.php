@@ -1,7 +1,7 @@
 <?php
 namespace Deployer;
 
-require 'recipe/symfony4.php';
+require 'recipe/symfony.php';
 
 // Project name
 set('application', 'php.of.by');
@@ -18,9 +18,9 @@ set('writable_mode', 'chmod');
 
 // Hosts
 host(getenv('DEPLOY_HOST'))
-    ->stage('production')
-    ->user(getenv('DEPLOY_USER'))
-    ->identityFile('.travis/deploy.key')
+    ->set('labels', ['stage' => 'production'])
+    ->set('remote_user', getenv('DEPLOY_USER'))
+    ->set('identity_file', '.travis/deploy.key')
     ->set('deploy_path', getenv('DEPLOY_PATH'));
 
 // User for setting proper permissions
@@ -55,7 +55,7 @@ task('deploy', [
     'deploy:cache:warmup',
     'deploy:symlink',
     'deploy:unlock',
-    'cleanup',
+    'deploy:cleanup',
 ]);
 
 // [Optional] if deploy fails automatically unlock.
