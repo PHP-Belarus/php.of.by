@@ -52,10 +52,7 @@ task('deploy', [
     'deploy:shared',
     'deploy:writable',
     'deploy:cache:clear',
-    'deploy:cache:warmup',
-    'deploy:symlink',
-    'deploy:unlock',
-    'deploy:cleanup',
+    'deploy:publish',
 ]);
 
 // [Optional] if deploy fails automatically unlock.
