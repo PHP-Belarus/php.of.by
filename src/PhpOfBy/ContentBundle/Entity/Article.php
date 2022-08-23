@@ -6,10 +6,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Timestampable;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
-/**
- * @ORM\Table()
- * @ORM\Entity(repositoryClass="PhpOfBy\ContentBundle\Entity\ArticleRepository")
- */
+#[ORM\Table()]
+#[ORM\Entity(repositoryClass: ArticleRepository::class)]
 class Article implements Timestampable
 {
     /*
@@ -18,56 +16,35 @@ class Article implements Timestampable
      */
     use TimestampableEntity;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
+    #[ORM\Column(type: 'integer')]
+    #[ORM\Id]
+    #[ORM\GeneratedValue(strategy: 'AUTO')]
+    /** @var int */
     private $articleId;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(type="integer", nullable=false)
-     * @ORM\Version
-     */
+    #[ORM\Column(type: 'integer', nullable: false)]
+    #[ORM\Version]
+    /** @var int */
     private $version;
 
-    /**
-     * @var bool
-     *
-     * @ORM\Column(type="boolean", nullable=false, options={"default"=0})
-     */
+    #[ORM\Column(type: 'boolean', nullable: false, options: ['default' => 0])]
+    /** @var bool */
     private $published = false;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(type="string", nullable=false, length=255)
-     */
+    #[ORM\Column(type: 'string', length: 255, nullable: false)]
+    /** @var string */
     private $title;
 
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(type="datetime", nullable=false)
-     */
+    #[ORM\Column(type: 'datetime', nullable: false)]
+    /** @var \DateTime */
     private $publicationDate;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(type="string", nullable=false, length=255)
-     */
+    #[ORM\Column(type: 'string', length: 255, nullable: false)]
+    /** @var string */
     private $teaser;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(type="text", length=50000, nullable=true)
-     */
+    #[ORM\Column(type: 'text', length: 50000, nullable: true)]
+    /** @var string */
     private $body;
 
     public function __construct()

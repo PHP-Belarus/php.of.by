@@ -39,9 +39,9 @@ Add nginx repos:
 Install nginx via ``sudo apt-get update && sudo apt-get install -y nginx``
 
 
-Install PHP 7.4
+Install PHP 8.1
 ~~~~~~~~~~~~~~~
-Add repository for php 7.4:
+Add repository for php 8.1:
 
   ::
 
@@ -50,21 +50,21 @@ Add repository for php 7.4:
     sudo sh -c 'echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
 
 
-Install required php modules ``sudo apt-get update && sudo apt-get install -y php7.4 php7.4-cli php7.4-intl php7.4-xdebug php7.4-mysqlnd php7.4-xml php7.4-mbstring php7.4-zip php7.4-fpm php7.4-curl`` Create and enable ``common.ini``:
+Install required php modules ``sudo apt-get update && sudo apt-get install -y php8.1 php8.1-cli php8.1-intl php8.1-xdebug php8.1-mysqlnd php8.1-xml php8.1-mbstring php8.1-zip php8.1-fpm php8.1-curl`` Create and enable ``common.ini``:
 
   ::
 
-    echo "; priority=99" | sudo tee /etc/php/7.4/mods-available/common.ini > /dev/null
-    echo "date.timezone=Europe/Minsk" | sudo tee -a /etc/php/7.4/mods-available/common.ini > /dev/null
-    echo "short_open_tag=0" | sudo tee -a /etc/php/7.4/mods-available/common.ini > /dev/null
-    echo "xdebug.max_nesting_level=250" | sudo tee -a /etc/php/7.4/mods-available/xdebug.ini > /dev/null
-    echo "xdebug.var_display_max_depth=5" | sudo tee -a /etc/php/7.4/mods-available/xdebug.ini > /dev/null
+    echo "; priority=99" | sudo tee /etc/php/8.1/mods-available/common.ini > /dev/null
+    echo "date.timezone=Europe/Minsk" | sudo tee -a /etc/php/8.1/mods-available/common.ini > /dev/null
+    echo "short_open_tag=0" | sudo tee -a /etc/php/8.1/mods-available/common.ini > /dev/null
+    echo "xdebug.max_nesting_level=250" | sudo tee -a /etc/php/8.1/mods-available/xdebug.ini > /dev/null
+    echo "xdebug.var_display_max_depth=5" | sudo tee -a /etc/php/8.1/mods-available/xdebug.ini > /dev/null
     sudo phpenmod common
 
 
-Open php fpm config file ``sudo mcedit /etc/php/7.4/fpm/pool.d/www.conf``, find ``listen = /run/php/php7.4-fpm.sock`` and replace with ``listen = 127.0.0.1:9000``.
+Open php fpm config file ``sudo mcedit /etc/php/8.1/fpm/pool.d/www.conf``, find ``listen = /run/php/php8.1-fpm.sock`` and replace with ``listen = 127.0.0.1:9000``.
 
-Restart ``php-fpm`` using command ``sudo service php7.4-fpm restart``.
+Restart ``php-fpm`` using command ``sudo service php8.1-fpm restart``.
 
 
 Install node.js and Yarn

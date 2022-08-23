@@ -14,10 +14,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DashboardController extends AbstractDashboardController
 {
+    #[Route('/')]
     /**
-     * /**
-     * @Route("/")
-     *
      * {@inheritdoc}
      */
     public function index(): Response

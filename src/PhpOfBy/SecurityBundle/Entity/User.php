@@ -7,10 +7,8 @@ use FOS\UserBundle\Model\User as BaseUser;
 use Gedmo\Timestampable\Timestampable;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
-/**
- * @ORM\Table()
- * @ORM\Entity()
- */
+#[ORM\Table()]
+#[ORM\Entity()]
 class User extends BaseUser implements Timestampable, UserInterface
 {
     /*
@@ -19,21 +17,15 @@ class User extends BaseUser implements Timestampable, UserInterface
      */
     use TimestampableEntity;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
+    #[ORM\Column(type: 'integer')]
+    #[ORM\Id]
+    #[ORM\GeneratedValue(strategy: 'AUTO')]
+    /** @var int */
     protected $userId;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(type="integer", nullable=false)
-     * @ORM\Version
-     */
+    #[ORM\Column(type: 'integer', nullable: false)]
+    #[ORM\Version]
+    /** @var int */
     private $version;
 
     /**
