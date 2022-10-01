@@ -514,6 +514,7 @@ abstract class AbstractServiceController
      * @param string|null $token   The actual token sent with the request that should be validated
      *
      * @return bool
+     *
      * @final
      */
     protected function isCsrfTokenValid(string $tokenId, ?string $token): bool
