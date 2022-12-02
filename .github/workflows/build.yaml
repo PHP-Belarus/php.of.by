@@ -22,7 +22,7 @@ jobs:
                 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
                 sudo apt-get update && sudo apt-get install yarn
             - name: Install docutils
-              run: sudo apt-get update && sudo apt-get install python-docutils
+              run: sudo apt-get update && sudo apt-get install python3-docutils
             - name: Checkout
               uses: actions/checkout@v2
             - uses: shogo82148/actions-setup-mysql@v1
