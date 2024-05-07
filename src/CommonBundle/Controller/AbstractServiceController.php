@@ -301,7 +301,7 @@ abstract class AbstractServiceController
      */
     protected function file(
         $file,
-        string $fileName = null,
+        ?string $fileName = null,
         string $disposition = ResponseHeaderBag::DISPOSITION_ATTACHMENT
     ): BinaryFileResponse {
         $response = new BinaryFileResponse($file);
@@ -394,7 +394,7 @@ abstract class AbstractServiceController
      *
      * @return Response
      */
-    protected function render(string $view, array $parameters = [], Response $response = null): Response
+    protected function render(string $view, array $parameters = [], ?Response $response = null): Response
     {
         $content = $this->getTemplating()->render($view, $parameters);
 
@@ -423,7 +423,7 @@ abstract class AbstractServiceController
      */
     protected function createNotFoundException(
         string $message = 'Not Found',
-        \Exception $previous = null
+        ?\Exception $previous = null
     ): NotFoundHttpException {
         return new NotFoundHttpException($message, $previous);
     }
@@ -446,7 +446,7 @@ abstract class AbstractServiceController
      */
     protected function createAccessDeniedException(
         string $message = 'Access Denied.',
-        \Exception $previous = null
+        ?\Exception $previous = null
     ): AccessDeniedException {
         return new AccessDeniedException($message, $previous);
     }

@@ -4,7 +4,7 @@ services:
     calls:
       - [ setRouter, [ '@router' ] ]
       - [ setSerializer, [ '@serializer' ] ]
-      - [ setSession, [ '@session' ] ]
+      - [ setSession, ['@=service("request_stack").getSession()'] ]
       - [ setAuthorizationChecker, [ '@security.authorization_checker' ] ]
       - [ setTemplating, [ '@twig' ] ]
       - [ setFormFactory, [ '@form.factory' ] ]
