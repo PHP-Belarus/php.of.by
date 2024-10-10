@@ -96,7 +96,7 @@ abstract class AbstractServiceController
      * @return AbstractServiceController
      */
     public function setAuthorizationChecker(
-        AuthorizationCheckerInterface $authorizationChecker
+        AuthorizationCheckerInterface $authorizationChecker,
     ): AbstractServiceController {
         $this->authorizationChecker = $authorizationChecker;
 
@@ -231,7 +231,7 @@ abstract class AbstractServiceController
     protected function generateUrl(
         string $route,
         array $parameters = [],
-        int $referenceType = UrlGeneratorInterface::ABSOLUTE_PATH
+        int $referenceType = UrlGeneratorInterface::ABSOLUTE_PATH,
     ): string {
         return $this->getRouter()->generate($route, $parameters, $referenceType);
     }
@@ -302,7 +302,7 @@ abstract class AbstractServiceController
     protected function file(
         $file,
         ?string $fileName = null,
-        string $disposition = ResponseHeaderBag::DISPOSITION_ATTACHMENT
+        string $disposition = ResponseHeaderBag::DISPOSITION_ATTACHMENT,
     ): BinaryFileResponse {
         $response = new BinaryFileResponse($file);
         $response->setContentDisposition(
@@ -423,7 +423,7 @@ abstract class AbstractServiceController
      */
     protected function createNotFoundException(
         string $message = 'Not Found',
-        ?\Exception $previous = null
+        ?\Exception $previous = null,
     ): NotFoundHttpException {
         return new NotFoundHttpException($message, $previous);
     }
@@ -446,7 +446,7 @@ abstract class AbstractServiceController
      */
     protected function createAccessDeniedException(
         string $message = 'Access Denied.',
-        ?\Exception $previous = null
+        ?\Exception $previous = null,
     ): AccessDeniedException {
         return new AccessDeniedException($message, $previous);
     }

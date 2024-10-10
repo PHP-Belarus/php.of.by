@@ -3,7 +3,7 @@
         "@babel/core": "^7.17.0",
         "@babel/preset-env": "^7.16.0",
         "@hotwired/stimulus": "^3.0.0",
-        "@symfony/webpack-encore": "^4.0.0",
+        "@symfony/webpack-encore": "^5.0.0",
         "less": "^4.0.0",
         "less-loader": "^12.2.0",
         "webpack": "^5.76.0",

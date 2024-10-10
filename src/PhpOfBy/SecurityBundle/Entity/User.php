@@ -77,7 +77,7 @@ class User extends BaseUser implements Timestampable, UserInterface
             $this->enabled,
             $this->userId,
             $this->email,
-            $this->emailCanonical
+            $this->emailCanonical,
         ) = $data;
     }
 
